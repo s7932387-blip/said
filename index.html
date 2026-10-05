@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DRAFTSIM · Dota 2 Draft Terminal</title>
+<title>DRAFTSIM · Тренажёр драфтов Dota 2</title>
 
 <!-- YANDEX GAMES SDK -->
 <script src="/sdk.js"></script>
 
-<!-- ICONS: Lucide -->
+<!-- ИКОНКИ: Lucide -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-<!-- TYPOGRAPHY -->
+<!-- ШРИФТЫ -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/chakra-petch/index.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter/index.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono/index.css" />
@@ -58,7 +58,7 @@ body.locked{ overflow:hidden; }
 
 .btn{ position:relative; display:inline-flex; align-items:center; justify-content:center; gap:7px;
   padding:9px 14px; border:1px solid var(--line); background:var(--panel);
-  font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
   color:var(--muted); cursor:pointer; border-radius:2px;
   transition:background-color .16s,border-color .16s,color .16s,opacity .2s,transform .16s; }
 .btn:hover:not(:disabled){ color:var(--txt); border-color:var(--line2); background:var(--panel3); }
@@ -71,22 +71,20 @@ body.locked{ overflow:hidden; }
 .btn-on{ border-color:rgba(201,162,39,.55); color:var(--amberSoft); background:rgba(201,162,39,.07); }
 
 .tag{ display:inline-flex; align-items:center; gap:5px; padding:2px 6px; border:1px solid var(--line);
-  font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); border-radius:1px; }
+  font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); border-radius:1px; }
 .tag-you{ border-color:rgba(201,162,39,.5); color:var(--amberSoft); background:rgba(201,162,39,.07); }
 .tag-bot{ border-color:rgba(138,123,216,.4); color:#b0a6e6; background:rgba(138,123,216,.07); }
 .tag-rad{ border-color:rgba(90,164,105,.4); color:#8fc79b; background:rgba(90,164,105,.07); }
 .tag-dire{ border-color:rgba(194,86,75,.4); color:#dc9087; background:rgba(194,86,75,.07); }
 
 .panel{ border:1px solid var(--line); background:var(--panel); border-radius:2px; }
-.panel-head{ height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px;
-  padding:0 14px; border-bottom:1px solid var(--line); background:var(--panel2); }
-.eyebrow{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--dim); }
+.panel-head{ min-height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding:6px 14px; border-bottom:1px solid var(--line); background:var(--panel2); }
+.eyebrow{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); }
 
-/* coach panel */
 .coach{ border:1px solid rgba(201,162,39,.35); background:linear-gradient(180deg,rgba(201,162,39,.05),rgba(14,18,22,.9)); }
 .sugg{ display:flex; gap:9px; align-items:stretch; width:100%; text-align:left; padding:8px; cursor:pointer;
-  border:1px solid var(--line); background:var(--panel2); border-radius:2px;
-  transition:border-color .16s,background-color .16s,transform .16s; }
+  border:1px solid var(--line); background:var(--panel2); border-radius:2px; transition:border-color .16s,background-color .16s,transform .16s; }
 .sugg:hover{ border-color:rgba(201,162,39,.6); background:var(--panel3); transform:translateY(-1px); }
 .sugg-rank{ width:18px; flex:none; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--amber); font-weight:700; padding-top:2px; }
 .sugg-img{ position:relative; width:74px; height:42px; flex:none; overflow:hidden; background:#16191d; border:1px solid var(--line); }
@@ -97,7 +95,6 @@ body.locked{ overflow:hidden; }
 .sugg-bar{ height:3px; background:#1a2027; margin-top:5px; overflow:hidden; }
 .sugg-bar i{ display:block; height:100%; background:linear-gradient(90deg,#8a6d1f,#e0c56a); width:0%; transition:width .5s ease; }
 
-/* slots */
 .slot{ display:flex; align-items:stretch; height:66px; border-left:2px solid transparent; transition:background-color .18s,border-color .18s; }
 .slot + .slot{ border-top:1px solid var(--line); }
 .slot-filled{ background:rgba(255,255,255,.014); }
@@ -127,7 +124,7 @@ body.locked{ overflow:hidden; }
 
 .seg{ display:flex; border:1px solid var(--line); background:var(--panel2); border-radius:2px; overflow:hidden; }
 .seg button{ display:inline-flex; align-items:center; gap:6px; padding:8px 11px; border-right:1px solid var(--line);
-  font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+  font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
   background:transparent; cursor:pointer; transition:background-color .16s,color .16s; white-space:nowrap; }
 .seg button:last-child{ border-right:0; }
 .seg button:hover{ color:var(--txt); background:var(--panel3); }
@@ -143,10 +140,10 @@ body.locked{ overflow:hidden; }
 .t-img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(.22) brightness(.94); transition:transform .28s,filter .2s; }
 .t-name{ font-family:'Chakra Petch',sans-serif; font-weight:600; font-size:12.5px; color:#dfe3e8;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:color .16s; }
-.t-roles{ font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim);
+.t-roles{ font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim);
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:2px; }
 .t-attr{ position:absolute; top:6px; left:6px; padding:1px 5px; font-family:'JetBrains Mono',monospace; font-size:8.5px;
-  letter-spacing:.12em; color:#0c0f12; font-weight:700; }
+  letter-spacing:.1em; color:#0c0f12; font-weight:700; }
 .t-meta{ position:absolute; top:6px; right:6px; padding:1px 5px; font-family:'JetBrains Mono',monospace; font-size:8.5px;
   color:var(--muted); background:rgba(12,15,18,.82); border:1px solid var(--line); }
 .t-taken{ position:absolute; inset:0; display:none; place-items:center; background:rgba(12,15,18,.78); }
@@ -163,14 +160,12 @@ body.locked{ overflow:hidden; }
 #roster-wrap{ position:relative; transition:opacity .25s ease; }
 #roster-wrap.locked{ opacity:.5; pointer-events:none; user-select:none; }
 
-/* mode cards */
 .mode{ position:relative; width:100%; text-align:left; padding:20px; border:1px solid var(--line); background:var(--panel);
   cursor:pointer; border-radius:2px; transition:border-color .16s,background-color .16s,transform .16s; overflow:hidden; }
-.mode:hover:not(.locked-mode){ border-color:var(--line2); background:var(--panel3); transform:translateY(-2px); }
+.mode:hover{ border-color:var(--line2); background:var(--panel3); transform:translateY(-2px); }
 .mode.sel{ border-color:var(--oc,var(--amber)); box-shadow:inset 3px 0 0 0 var(--oc,var(--amber)); background:var(--panel3); }
-.mode.locked-mode{ opacity:.45; cursor:not-allowed; }
 .mode-badge{ position:absolute; top:12px; right:12px; font-family:'JetBrains Mono',monospace; font-size:8.5px;
-  letter-spacing:.18em; padding:2px 6px; border:1px solid var(--line2); color:var(--dim); }
+  letter-spacing:.16em; padding:2px 6px; border:1px solid var(--line2); color:var(--dim); }
 
 .opt{ position:relative; width:100%; text-align:left; padding:14px 16px; border:1px solid var(--line); background:var(--panel);
   cursor:pointer; border-radius:2px; transition:border-color .16s,background-color .16s,transform .16s; }
@@ -179,22 +174,26 @@ body.locked{ overflow:hidden; }
 .opt .tick{ position:absolute; top:12px; right:12px; color:var(--oc,var(--amber)); opacity:0; transition:opacity .16s; }
 .opt.sel .tick{ opacity:1; }
 
-/* analysis */
-.mrow{ display:grid; grid-template-columns:1fr 190px 1fr; gap:10px; align-items:center; }
+#setup{ position:fixed; inset:0; z-index:350; background:rgba(12,15,18,.97); display:flex; align-items:center;
+  justify-content:center; padding:16px; overflow-y:auto; transition:opacity .3s,visibility .3s; }
+#setup.away{ opacity:0; visibility:hidden; pointer-events:none; }
+.pane{ display:none } .pane.on{ display:block; animation:fadeIn .25s ease; }
+
+.mrow{ display:grid; grid-template-columns:1fr 200px 1fr; gap:10px; align-items:center; }
 .mbar{ position:relative; height:6px; background:#1a2027; overflow:hidden; display:flex; }
 .mbar i{ display:block; height:100%; width:0%; transition:width 1s cubic-bezier(.2,.8,.2,1); }
 .mleft .mbar{ justify-content:flex-end; }
 .mval{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; }
 .mleft{ text-align:right; }
 .mlabel{ text-align:center; }
-.mlabel span{ display:block; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.16em;
+.mlabel span{ display:block; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--muted); margin-top:4px; }
 .splitbar{ position:relative; height:14px; display:flex; border:1px solid var(--line); background:#0e1216; overflow:hidden; }
 .splitbar span{ display:block; height:100%; width:50%; transition:width 1.1s cubic-bezier(.2,.8,.2,1); }
 .h2h{ display:flex; align-items:center; gap:10px; padding:7px 10px; border:1px solid var(--line); background:var(--panel2); }
-.h2h .k{ flex:1; text-align:center; font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.1em;
+.h2h .k{ flex:1; text-align:center; font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--muted); }
-.h2h .v{ min-width:46px; text-align:center; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; }
+.h2h .v{ min-width:48px; text-align:center; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; }
 .h2h.win-you{ border-left:2px solid #5aa469; }
 .h2h.win-bot{ border-right:2px solid #8a7bd8; }
 .note{ display:flex; gap:9px; align-items:flex-start; padding:8px 10px; border:1px solid var(--line); border-left-width:2px;
@@ -205,15 +204,10 @@ body.locked{ overflow:hidden; }
 .lu{ position:relative; aspect-ratio:16/9; overflow:hidden; border:1px solid var(--line); background:#16191d; }
 .lu img{ width:100%; height:100%; object-fit:cover; display:block; }
 .lu .lu-n{ position:absolute; inset:auto 0 0 0; padding:8px 4px 3px; font-family:'JetBrains Mono',monospace; font-size:8px;
-  letter-spacing:.08em; text-transform:uppercase; color:#e6e9ec; background:linear-gradient(180deg,transparent,rgba(12,15,18,.95));
+  letter-spacing:.06em; text-transform:uppercase; color:#e6e9ec; background:linear-gradient(180deg,transparent,rgba(12,15,18,.95));
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .lu .lu-p{ position:absolute; top:0; left:0; padding:0 3px; font-family:'JetBrains Mono',monospace; font-size:8px;
   color:#0c0f12; background:var(--amber); font-weight:700; }
-
-#setup{ position:fixed; inset:0; z-index:350; background:rgba(12,15,18,.97); display:flex; align-items:center;
-  justify-content:center; padding:16px; overflow-y:auto; transition:opacity .3s,visibility .3s; }
-#setup.away{ opacity:0; visibility:hidden; pointer-events:none; }
-.pane{ display:none } .pane.on{ display:block; animation:fadeIn .25s ease; }
 
 #analysis{ opacity:0; pointer-events:none; transition:opacity .28s ease; }
 #analysis.open{ opacity:1; pointer-events:auto; }
@@ -222,7 +216,7 @@ body.locked{ overflow:hidden; }
 
 #toast{ position:fixed; left:50%; bottom:26px; transform:translate(-50%,10px); z-index:400; opacity:0; pointer-events:none;
   transition:opacity .25s,transform .25s; padding:9px 16px; border:1px solid var(--line2); background:#0e1216;
-  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--txt); text-align:center; max-width:92vw; }
+  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--txt); text-align:center; max-width:92vw; }
 #toast.show{ opacity:1; transform:translate(-50%,0); }
 
 #boot{ position:fixed; inset:0; z-index:500; background:#0c0f12; display:grid; place-items:center; transition:opacity .5s; }
@@ -234,13 +228,14 @@ body.locked{ overflow:hidden; }
 
 <body class="font-body antialiased">
 
+<!-- ============ ЗАГРУЗЧИК ============ -->
 <div id="boot">
   <div class="text-center">
     <div class="inline-flex items-center gap-2 border border-line px-3 py-2 mb-6">
       <i data-lucide="hexagon" class="text-[15px] text-amber"></i>
       <span class="font-tech font-bold text-[13px] tracking-[.28em]">DRAFTSIM</span>
     </div>
-    <p id="boot-text" class="font-mono text-[10px] tracking-[.24em] uppercase text-dim">Initializing roster…</p>
+    <p id="boot-text" class="font-mono text-[10px] tracking-[.2em] uppercase text-dim">Инициализация ростера…</p>
     <div class="boot-bar mx-auto mt-4"><i id="boot-fill"></i></div>
   </div>
 </div>
@@ -248,66 +243,70 @@ body.locked{ overflow:hidden; }
 <div class="bd-grid"></div><div class="bd-vig"></div>
 <div id="toast"></div>
 
-<!-- ============ HEADER ============ -->
+<!-- ============ ШАПКА ============ -->
 <header class="fixed top-0 inset-x-0 z-[100] border-b border-line bg-base/95 backdrop-blur">
   <div class="max-w-[1680px] mx-auto px-4 lg:px-6 h-14 flex items-center justify-between gap-3">
     <div class="flex items-center gap-3 min-w-0">
       <div class="w-7 h-7 border border-amber/50 grid place-items-center text-amber shrink-0"><i data-lucide="hexagon" class="text-[13px]"></i></div>
       <div class="leading-none min-w-0">
         <p class="font-tech font-bold text-[13px] tracking-[.24em]">DRAFT<span class="text-amber">SIM</span></p>
-        <p id="mode-line" class="font-mono text-[9px] tracking-[.18em] text-dim mt-1 truncate">MODE: —</p>
+        <p id="mode-line" class="font-mono text-[9px] tracking-[.16em] text-dim mt-1 truncate">РЕЖИМ: —</p>
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <div class="hidden sm:flex items-center gap-2 border border-line px-2.5 py-[7px] font-mono text-[9.5px] tracking-[.14em] text-muted">
-        <span id="status-dot" class="w-1.5 h-1.5 bg-amber"></span><span id="status-text">LOADING</span>
+      <div class="hidden sm:flex items-center gap-2 border border-line px-2.5 py-[7px] font-mono text-[9.5px] tracking-[.12em] text-muted">
+        <span id="status-dot" class="w-1.5 h-1.5 bg-amber"></span><span id="status-text">ЗАГРУЗКА</span>
       </div>
-      <div class="hidden md:flex items-center gap-2 border border-line px-2.5 py-[7px] font-mono text-[9.5px] tracking-[.14em] text-muted">
+      <div class="hidden md:flex items-center gap-2 border border-line px-2.5 py-[7px] font-mono text-[9.5px] tracking-[.12em] text-muted">
         <i data-lucide="database" class="text-[12px] text-dim"></i><span id="hero-count">0</span>
       </div>
-      <div class="hidden lg:flex items-center gap-2 border border-line px-2.5 py-[7px] font-mono text-[9.5px] tracking-[.14em] text-muted">
+      <div class="hidden lg:flex items-center gap-2 border border-line px-2.5 py-[7px] font-mono text-[9.5px] tracking-[.12em] text-muted">
         <i data-lucide="user" class="text-[12px] text-dim"></i><span id="nav-you">—</span>
         <span class="text-dim">/</span><i data-lucide="bot" class="text-[12px] text-dim"></i><span id="nav-bot">—</span>
       </div>
-      <button id="btn-refetch" class="btn"><i data-lucide="cloud-download" class="text-[12px]"></i><span class="hidden sm:inline">Sync</span></button>
-      <button id="btn-menu" class="btn"><i data-lucide="layout-grid" class="text-[12px]"></i><span class="hidden sm:inline">Menu</span></button>
+      <button id="btn-refetch" class="btn"><i data-lucide="cloud-download" class="text-[12px]"></i><span class="hidden sm:inline">Синхр.</span></button>
+      <button id="btn-menu" class="btn"><i data-lucide="layout-grid" class="text-[12px]"></i><span class="hidden sm:inline">Меню</span></button>
     </div>
   </div>
 </header>
 
 <main class="pt-14">
+
+  <!-- ============ ПОЛОСА МАТЧА ============ -->
   <section class="border-b border-line bg-panel2">
     <div class="max-w-[1680px] mx-auto px-4 lg:px-6 py-4 grid gap-4 lg:grid-cols-[1fr_auto_1fr] items-center">
       <div class="flex items-center gap-3">
         <i data-lucide="sun" class="text-[18px] text-rad"></i>
         <div>
-          <p class="font-tech font-bold text-[15px] tracking-[.2em] text-txt">RADIANT</p>
-          <p class="font-mono text-[9.5px] tracking-[.16em] text-dim mt-0.5"><span id="tag-radiant">—</span></p>
+          <p class="font-tech font-bold text-[15px] tracking-[.2em] text-txt">СВЕТ</p>
+          <p class="font-mono text-[9.5px] tracking-[.14em] text-dim mt-0.5"><span id="tag-radiant">—</span></p>
         </div>
       </div>
       <div class="text-center">
-        <p class="font-mono text-[9.5px] tracking-[.3em] text-dim">MATCH PHASE</p>
+        <p class="font-mono text-[9.5px] tracking-[.26em] text-dim">ФАЗА ДРАФТА</p>
         <p class="font-tech font-bold text-[22px] tracking-[.16em] mt-0.5"><span id="phase-a">00</span><span class="text-dim mx-1">/</span><span class="text-dim">10</span></p>
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
         <div class="lg:text-right">
-          <p class="font-tech font-bold text-[15px] tracking-[.2em] text-txt">DIRE</p>
-          <p class="font-mono text-[9.5px] tracking-[.16em] text-dim mt-0.5"><span id="tag-dire">—</span></p>
+          <p class="font-tech font-bold text-[15px] tracking-[.2em] text-txt">ТЬМА</p>
+          <p class="font-mono text-[9.5px] tracking-[.14em] text-dim mt-0.5"><span id="tag-dire">—</span></p>
         </div>
         <i data-lucide="flame" class="text-[18px] text-dire"></i>
       </div>
     </div>
   </section>
 
+  <!-- ============ ДОСКА ДРАФТА ============ -->
   <section id="draft" class="max-w-[1680px] mx-auto px-4 lg:px-6 py-5 grid gap-4 xl:grid-cols-[1fr_330px_1fr] items-start">
+
     <div class="panel">
       <div class="panel-head">
         <div class="flex items-center gap-2">
           <i data-lucide="sun" class="text-[13px] text-rad"></i>
-          <span class="font-tech font-bold text-[11.5px] tracking-[.24em]">RADIANT</span>
+          <span class="font-tech font-bold text-[11.5px] tracking-[.22em]">СВЕТ</span>
           <span id="owner-radiant" class="tag">—</span>
         </div>
-        <span class="font-mono text-[9.5px] tracking-[.16em] text-dim"><span id="rad-count">0</span>/5 LOCKED</span>
+        <span class="font-mono text-[9.5px] tracking-[.14em] text-dim"><span id="rad-count">0</span>/5 ЗАБЛОКИРОВАНО</span>
       </div>
       <div id="slots-radiant"></div>
     </div>
@@ -315,53 +314,54 @@ body.locked{ overflow:hidden; }
     <div class="flex flex-col gap-4">
       <div class="panel">
         <div class="panel-head">
-          <span class="font-tech font-bold text-[11px] tracking-[.24em] text-muted">DRAFT CONTROL</span>
-          <span class="font-mono text-[9.5px] tracking-[.16em] text-dim" id="mode-tag">—</span>
+          <span class="font-tech font-bold text-[11px] tracking-[.2em] text-muted">УПРАВЛЕНИЕ ДРАФТОМ</span>
+          <span class="font-mono text-[9.5px] tracking-[.14em] text-dim" id="mode-tag">—</span>
         </div>
         <div class="p-4">
-          <p class="eyebrow">Current Selection</p>
+          <p class="eyebrow">Текущий пик</p>
           <p id="turn-team" class="font-tech font-bold text-[26px] leading-none tracking-[.1em] mt-2">—</p>
-          <p id="turn-pos" class="font-mono text-[10.5px] tracking-[.16em] text-muted mt-2">—</p>
-          <p id="turn-owner" class="font-mono text-[10px] tracking-[.16em] text-dim mt-1">—</p>
+          <p id="turn-pos" class="font-mono text-[10.5px] tracking-[.14em] text-muted mt-2">—</p>
+          <p id="turn-owner" class="font-mono text-[10px] tracking-[.14em] text-dim mt-1">—</p>
 
           <div id="thinking" class="think mt-3">
             <i data-lucide="cpu" class="text-[13px] text-uni"></i>
-            <span class="font-mono text-[9.5px] tracking-[.18em] text-muted">BOT PROCESSING</span>
+            <span class="font-mono text-[9.5px] tracking-[.16em] text-muted">БОТ ДУМАЕТ</span>
             <span class="dots"><i></i><i></i><i></i></span>
-            <span id="thinking-sub" class="font-mono text-[9px] tracking-[.1em] text-dim ml-auto truncate">scanning</span>
+            <span id="thinking-sub" class="font-mono text-[9px] tracking-[.08em] text-dim ml-auto truncate">анализ пула</span>
           </div>
 
           <div class="mt-4">
-            <p class="eyebrow mb-2">Pick Sequence</p>
+            <p class="eyebrow mb-2">Очерёдность пиков</p>
             <div id="order-strip" class="grid grid-cols-10 gap-[3px]"></div>
           </div>
           <div class="mt-4 h-[3px] bg-line"><div id="pick-bar" class="h-full bg-amber" style="width:0%;transition:width .4s ease"></div></div>
 
           <div class="grid grid-cols-2 gap-2 mt-4">
-            <button id="btn-undo" class="btn" disabled><i data-lucide="rotate-ccw" class="text-[12px]"></i>Undo</button>
-            <button id="btn-auto" class="btn"><i data-lucide="wand-2" class="text-[12px]"></i>Auto</button>
-            <button id="btn-reset" class="btn col-span-2 btn-danger"><i data-lucide="refresh-ccw" class="text-[12px]"></i>Restart Draft</button>
+            <button id="btn-undo" class="btn" disabled><i data-lucide="rotate-ccw" class="text-[12px]"></i>Отменить</button>
+            <button id="btn-auto" class="btn"><i data-lucide="wand-2" class="text-[12px]"></i>Авто</button>
+            <button id="btn-reset" class="btn col-span-2 btn-danger"><i data-lucide="refresh-ccw" class="text-[12px]"></i>Начать заново</button>
           </div>
           <button id="btn-analyze" class="btn btn-primary w-full mt-2 !py-3" disabled>
-            <i data-lucide="bar-chart-3" class="text-[13px]"></i> Analyze Matchup
+            <i data-lucide="bar-chart-3" class="text-[13px]"></i> Анализ матч-апа
           </button>
-          <p id="analyze-hint" class="font-mono text-[9px] tracking-[.16em] uppercase text-dim text-center mt-2">Draft 10 heroes to unlock</p>
+          <p id="analyze-hint" class="font-mono text-[9px] tracking-[.14em] uppercase text-dim text-center mt-2">Заблокируйте 10 героев</p>
         </div>
       </div>
 
-      <!-- ============ AI COACH SUGGESTIONS ============ -->
-      <div class="panel coach">
+      <!-- ============ ИИ-ТРЕНЕР ============ -->
+      <div id="coach-panel" class="panel coach">
         <div class="panel-head !bg-transparent">
           <div class="flex items-center gap-2">
             <i data-lucide="brain-circuit" class="text-[13px] text-amber"></i>
-            <span class="font-tech font-bold text-[11px] tracking-[.22em] text-amberSoft">AI COACH SUGGESTIONS</span>
+            <span class="font-tech font-bold text-[11px] tracking-[.18em] text-amberSoft">ИИ-ТРЕНЕР · ПОДСКАЗКИ</span>
           </div>
-          <span id="coach-for" class="font-mono text-[9px] tracking-[.14em] text-dim truncate">—</span>
+          <span id="coach-for" class="font-mono text-[9px] tracking-[.12em] text-dim truncate">—</span>
         </div>
         <div class="p-3">
           <div id="coach-list" class="flex flex-col gap-2"></div>
-          <p id="coach-note" class="font-mono text-[9px] leading-relaxed tracking-[.06em] text-dim mt-3 border-t border-line pt-2.5">
-            Scored live from the remaining pool: hard counters (lockdown vs mobility, sustain vs burst), missing role synergy for the active team, position fit and meta index.
+          <p class="font-mono text-[9px] leading-relaxed tracking-[.04em] text-dim mt-3 border-t border-line pt-2.5">
+            Пересчёт всего оставшегося пула после каждого пика: жёсткие контрпики (контроль против мобильности, живучесть против магического взрыва),
+            нехватка ролей в вашей команде, соответствие позиции и мета-индекс.
           </p>
         </div>
       </div>
@@ -369,10 +369,10 @@ body.locked{ overflow:hidden; }
 
     <div class="panel">
       <div class="panel-head">
-        <span class="font-mono text-[9.5px] tracking-[.16em] text-dim"><span id="dire-count">0</span>/5 LOCKED</span>
+        <span class="font-mono text-[9.5px] tracking-[.14em] text-dim"><span id="dire-count">0</span>/5 ЗАБЛОКИРОВАНО</span>
         <div class="flex items-center gap-2">
           <span id="owner-dire" class="tag">—</span>
-          <span class="font-tech font-bold text-[11.5px] tracking-[.24em]">DIRE</span>
+          <span class="font-tech font-bold text-[11.5px] tracking-[.22em]">ТЬМА</span>
           <i data-lucide="flame" class="text-[13px] text-dire"></i>
         </div>
       </div>
@@ -380,51 +380,51 @@ body.locked{ overflow:hidden; }
     </div>
   </section>
 
-  <!-- ============ ROSTER ============ -->
+  <!-- ============ РОСТЕР ============ -->
   <section id="roster" class="max-w-[1680px] mx-auto px-4 lg:px-6 pb-20">
     <div id="roster-wrap">
       <div class="flex items-end justify-between gap-4 mb-4 flex-wrap">
         <div>
-          <p class="eyebrow">Hero Pool</p>
-          <h2 class="font-tech font-bold text-[20px] tracking-[.16em] mt-1">ROSTER</h2>
+          <p class="eyebrow">Пул героев</p>
+          <h2 class="font-tech font-bold text-[20px] tracking-[.16em] mt-1">РОСТЕР</h2>
         </div>
-        <p id="roster-source" class="font-mono text-[9.5px] tracking-[.16em] text-dim">—</p>
+        <p id="roster-source" class="font-mono text-[9.5px] tracking-[.14em] text-dim">—</p>
       </div>
 
       <div class="sticky top-14 z-40 border border-line bg-base/96 backdrop-blur p-3 mb-4">
         <div class="flex flex-wrap items-center gap-3">
           <div class="relative flex-1 min-w-[220px]">
             <i data-lucide="search" class="text-[13px] text-dim absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-            <input id="search" type="text" autocomplete="off" placeholder="SEARCH HERO…"
-              class="w-full pl-9 pr-9 py-[10px] bg-panel2 border border-line text-[12px] tracking-[.08em] text-txt placeholder:text-dim focus:outline-none focus:border-line2" />
+            <input id="search" type="text" autocomplete="off" placeholder="ПОИСК ГЕРОЯ…"
+              class="w-full pl-9 pr-9 py-[10px] bg-panel2 border border-line text-[12px] tracking-[.06em] text-txt placeholder:text-dim focus:outline-none focus:border-line2" />
             <button id="search-clear" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-dim hover:text-txt hidden"><i data-lucide="x" class="text-[13px]"></i></button>
           </div>
           <div class="seg" id="attr-filters">
-            <button class="on" data-attr="all">All</button>
-            <button data-attr="str" style="--sc:#c2564b"><i data-lucide="sword" class="text-[12px]"></i>STR</button>
-            <button data-attr="agi" style="--sc:#5aa469"><i data-lucide="wind" class="text-[12px]"></i>AGI</button>
-            <button data-attr="int" style="--sc:#5b8fc9"><i data-lucide="brain" class="text-[12px]"></i>INT</button>
-            <button data-attr="all_uni" style="--sc:#8a7bd8"><i data-lucide="infinity" class="text-[12px]"></i>UNI</button>
+            <button class="on" data-attr="all">Все</button>
+            <button data-attr="str" style="--sc:#c2564b"><i data-lucide="sword" class="text-[12px]"></i>Сила</button>
+            <button data-attr="agi" style="--sc:#5aa469"><i data-lucide="wind" class="text-[12px]"></i>Ловк.</button>
+            <button data-attr="int" style="--sc:#5b8fc9"><i data-lucide="brain" class="text-[12px]"></i>Инт.</button>
+            <button data-attr="all_uni" style="--sc:#8a7bd8"><i data-lucide="infinity" class="text-[12px]"></i>Унив.</button>
           </div>
-          <select id="sort" class="bg-panel2 border border-line px-3 py-[10px] font-mono text-[9.5px] tracking-[.14em] uppercase text-muted focus:outline-none focus:border-line2">
-            <option value="name">Sort · Name</option>
-            <option value="attr">Sort · Attribute</option>
-            <option value="meta">Sort · Meta Index</option>
-            <option value="coach">Sort · Coach Score</option>
+          <select id="sort" class="bg-panel2 border border-line px-3 py-[10px] font-mono text-[9.5px] tracking-[.12em] uppercase text-muted focus:outline-none focus:border-line2">
+            <option value="name">Сортировка · Имя</option>
+            <option value="attr">Сортировка · Атрибут</option>
+            <option value="meta">Сортировка · Мета-индекс</option>
+            <option value="coach">Сортировка · Оценка тренера</option>
           </select>
-          <button id="btn-coach" class="btn btn-on"><i data-lucide="lightbulb" class="text-[12px]"></i>Highlight</button>
-          <div class="flex items-center gap-2 border border-line px-2.5 py-[9px] font-mono text-[9.5px] tracking-[.14em] text-muted">
-            <i data-lucide="layers" class="text-[12px] text-dim"></i><span id="result-count">0</span> SHOWN
+          <button id="btn-coach" class="btn btn-on"><i data-lucide="lightbulb" class="text-[12px]"></i>Подсветка</button>
+          <div class="flex items-center gap-2 border border-line px-2.5 py-[9px] font-mono text-[9.5px] tracking-[.12em] text-muted">
+            <i data-lucide="layers" class="text-[12px] text-dim"></i><span id="result-count">0</span> ПОКАЗАНО
           </div>
         </div>
         <div class="flex flex-wrap items-center gap-2 mt-3">
-          <span class="eyebrow mr-1">Role</span>
+          <span class="eyebrow mr-1">Роль</span>
           <div class="seg flex-wrap" id="role-filters"></div>
         </div>
       </div>
 
       <div id="hero-grid" class="grid gap-2.5" style="grid-template-columns:repeat(auto-fill,minmax(164px,1fr))"></div>
-      <p id="empty-state" class="hidden text-center font-mono text-[10px] tracking-[.24em] uppercase text-dim mt-10">No heroes match this filter</p>
+      <p id="empty-state" class="hidden text-center font-mono text-[10px] tracking-[.2em] uppercase text-dim mt-10">Ни один герой не подходит под фильтр</p>
     </div>
   </section>
 
@@ -435,216 +435,241 @@ body.locked{ overflow:hidden; }
           <i data-lucide="hexagon" class="text-[14px] text-amber"></i>
           <span class="font-tech font-bold text-[12px] tracking-[.26em]">DRAFTSIM</span>
         </div>
-        <p class="text-[12.5px] leading-relaxed text-dim max-w-sm">Offline draft terminal for Yandex Games. Live roster and portraits from the OpenDota API + OpenDota CDN, 125+ hero local fallback, three AI tiers and a live counter-pick coach.</p>
+        <p class="text-[12.5px] leading-relaxed text-dim max-w-sm">Офлайн-терминал драфтов для Яндекс Игр. Живой ростер и портреты с OpenDota API и CDN OpenDota, локальная база на 125+ героев, три режима и честная аналитика матч-апов.</p>
       </div>
       <div>
-        <p class="eyebrow mb-3">Modes</p>
-        <ul class="space-y-1.5 font-mono text-[10px] tracking-[.1em] text-muted">
-          <li><span class="text-rad">SOLO VS AI</span> · easy / medium / hard bots</li>
-          <li><span class="text-amber">RANKED PRACTICE</span> · counter-pick trainer, both sides</li>
-          <li><span class="text-dim">ONLINE P2P</span> · coming soon</li>
+        <p class="eyebrow mb-3">Режимы</p>
+        <ul class="space-y-1.5 font-mono text-[10px] tracking-[.08em] text-muted">
+          <li><span class="text-uni">ОДИНОЧНАЯ ИГРА</span> · лёгкий / средний / сложный бот</li>
+          <li><span class="text-rad">ПЕСОЧНИЦА</span> · ручной ввод всех 10 пиков</li>
+          <li><span class="text-amber">РЕНКЕД ПОМОЩНИК</span> · живой тренер контр-пиков</li>
         </ul>
       </div>
       <div>
-        <p class="eyebrow mb-3">Coach Model</p>
-        <ul class="space-y-1.5 font-mono text-[10px] tracking-[.1em] text-muted">
-          <li>Curated hard-counter database (60+ heroes)</li>
-          <li>Threat vectors: lockdown / mobility / magic / physical / sustain / siege</li>
-          <li>Missing-role synergy detection per position</li>
-          <li>Damage-type balance correction</li>
+        <p class="eyebrow mb-3">Модель аналитики</p>
+        <ul class="space-y-1.5 font-mono text-[10px] tracking-[.08em] text-muted">
+          <li>Нулевая сумма профиля героя (роли + атрибут + тип атаки)</li>
+          <li>Значение команды = строгое среднее пяти профилей</li>
+          <li>Шанс победы = логистика от разницы рейтингов (D = 144)</li>
+          <li>Текст вердикта строится только из таблицы сравнения</li>
         </ul>
       </div>
     </div>
     <div class="border-t border-line">
-      <div class="max-w-[1680px] mx-auto px-4 lg:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-[9px] tracking-[.2em] uppercase text-dim">
-        <p>© <span id="year"></span> DraftSim — fan concept</p>
-        <p>Not affiliated with Valve Corporation</p>
+      <div class="max-w-[1680px] mx-auto px-4 lg:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-[9px] tracking-[.18em] uppercase text-dim">
+        <p>© <span id="year"></span> DraftSim — фанатский концепт</p>
+        <p>Не связано с Valve Corporation</p>
       </div>
     </div>
   </footer>
 </main>
 
-<!-- ============ MAIN MENU / SETUP ============ -->
+<!-- ============ ГЛАВНОЕ МЕНЮ ============ -->
 <div id="setup">
-  <div class="w-full max-w-[1020px] py-6">
+  <div class="w-full max-w-[1040px] py-6">
 
-    <!-- PANE 1: MODES -->
+    <!-- ЭКРАН 1: РЕЖИМЫ -->
     <div id="pane-modes" class="pane on">
       <div class="flex items-center gap-3 mb-1">
         <div class="w-8 h-8 border border-amber/50 grid place-items-center text-amber"><i data-lucide="hexagon" class="text-[15px]"></i></div>
         <div>
-          <p class="font-tech font-bold text-[15px] tracking-[.26em]">SELECT GAME MODE</p>
-          <p class="font-mono text-[9.5px] tracking-[.2em] text-dim mt-0.5">DRAFTSIM · OFFLINE TERMINAL</p>
+          <p class="font-tech font-bold text-[15px] tracking-[.24em]">ВЫБОР РЕЖИМА</p>
+          <p class="font-mono text-[9.5px] tracking-[.16em] text-dim mt-0.5">DRAFTSIM · ОФЛАЙН-ТЕРМИНАЛ</p>
         </div>
       </div>
       <div class="h-px bg-line my-5"></div>
-      <p id="setup-source" class="font-mono text-[9.5px] tracking-[.18em] text-dim mb-5">ROSTER: loading…</p>
+      <p id="setup-source" class="font-mono text-[9.5px] tracking-[.14em] text-dim mb-5">РОСТЕР: загрузка…</p>
 
       <div class="grid md:grid-cols-3 gap-3">
         <button class="mode" data-mode="ai" style="--oc:#8a7bd8">
-          <span class="mode-badge">AVAILABLE</span>
+          <span class="mode-badge">ДОСТУПНО</span>
           <i data-lucide="bot" class="text-[22px] text-uni"></i>
-          <p class="font-tech font-bold text-[14px] tracking-[.16em] mt-3 text-txt">SOLO VS AI</p>
-          <p class="text-[12px] text-dim mt-1.5 leading-relaxed">Draft five heroes against an Easy, Medium or Hard bot that counter-picks you.</p>
-          <p class="font-mono text-[9px] tracking-[.18em] text-dim mt-3 uppercase">Turn-based · graded report</p>
+          <p class="font-tech font-bold text-[13px] tracking-[.12em] mt-3 text-txt">ОДИНОЧНАЯ ИГРА (VS ИИ)</p>
+          <p class="text-[12px] text-dim mt-1.5 leading-relaxed">Вы пикаете за Свет, бот отвечает за Тьму. Три уровня сложности и оценка вашего драфта.</p>
+          <p class="font-mono text-[9px] tracking-[.14em] text-dim mt-3 uppercase">Пошагово · отчёт с оценкой</p>
         </button>
 
-        <button class="mode" data-mode="ranked" style="--oc:#c9a227">
-          <span class="mode-badge" style="border-color:rgba(201,162,39,.5);color:#e0c56a">NEW</span>
+        <button class="mode" data-mode="sandbox" style="--oc:#5aa469">
+          <span class="mode-badge" style="border-color:rgba(90,164,105,.5);color:#8fc79b">НОВОЕ</span>
+          <i data-lucide="flask-conical" class="text-[22px] text-rad"></i>
+          <p class="font-tech font-bold text-[13px] tracking-[.12em] mt-3 text-txt">АНАЛИЗАТОР МАТЧАПОВ (ПЕСОЧНИЦА)</p>
+          <p class="text-[12px] text-dim mt-1.5 leading-relaxed">Вы вручную вводите все 10 героев за обе стороны — реальный драфт или повтор пика с про-сцены. В конце шанс победы.</p>
+          <p class="font-mono text-[9px] tracking-[.14em] text-dim mt-3 uppercase">Ручной ввод · без подсказок</p>
+        </button>
+
+        <button class="mode" data-mode="coach" style="--oc:#c9a227">
+          <span class="mode-badge" style="border-color:rgba(201,162,39,.5);color:#e0c56a">ТРЕНЕР</span>
           <i data-lucide="crosshair" class="text-[22px] text-amber"></i>
-          <p class="font-tech font-bold text-[14px] tracking-[.16em] mt-3 text-txt">RANKED PRACTICE</p>
-          <p class="text-[12px] text-dim mt-1.5 leading-relaxed">Counter-pick trainer. You control both sides and mirror a real ranked pub draft.</p>
-          <p class="font-mono text-[9px] tracking-[.18em] text-amberSoft mt-3 uppercase">Тренажер контр-пиков</p>
-        </button>
-
-        <button class="mode locked-mode" data-mode="p2p" style="--oc:#5aa469">
-          <span class="mode-badge">SOON</span>
-          <i data-lucide="wifi-off" class="text-[22px] text-dim"></i>
-          <p class="font-tech font-bold text-[14px] tracking-[.16em] mt-3 text-muted">ONLINE P2P</p>
-          <p class="text-[12px] text-dim mt-1.5 leading-relaxed">Live draft versus another player through the Yandex Games room backend.</p>
-          <p class="font-mono text-[9px] tracking-[.18em] text-dim mt-3 uppercase">Locked in offline build</p>
+          <p class="font-tech font-bold text-[13px] tracking-[.12em] mt-3 text-txt">РЕНКЕД ПОМОЩНИК (ЖИВОЙ ТРЕНЕР)</p>
+          <p class="text-[12px] text-dim mt-1.5 leading-relaxed">Тренажёр контр-пиков: тренер в реальном времени предлагает три лучших ответа на текущий ход.</p>
+          <p class="font-mono text-[9px] tracking-[.14em] text-amberSoft mt-3 uppercase">Подсказки · контрпики · синергия</p>
         </button>
       </div>
 
       <div class="mt-6 flex justify-center">
-        <button id="btn-to-config" class="btn btn-primary !py-3 !px-8" disabled>
-          Continue <i data-lucide="chevron-right" class="text-[13px]"></i>
-        </button>
+        <button id="btn-to-config" class="btn btn-primary !py-3 !px-8" disabled>Далее <i data-lucide="chevron-right" class="text-[13px]"></i></button>
       </div>
     </div>
 
-    <!-- PANE 2: CONFIG -->
+    <!-- ЭКРАН 2: НАСТРОЙКИ -->
     <div id="pane-config" class="pane">
-      <div class="flex items-center justify-between mb-1">
+      <div class="flex items-center justify-between mb-1 gap-3">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 border border-amber/50 grid place-items-center text-amber"><i data-lucide="settings-2" class="text-[15px]"></i></div>
           <div>
-            <p id="cfg-title" class="font-tech font-bold text-[15px] tracking-[.26em]">MATCH SETUP</p>
-            <p id="cfg-sub" class="font-mono text-[9.5px] tracking-[.2em] text-dim mt-0.5">—</p>
+            <p id="cfg-title" class="font-tech font-bold text-[15px] tracking-[.2em]">НАСТРОЙКА МАТЧА</p>
+            <p id="cfg-sub" class="font-mono text-[9.5px] tracking-[.16em] text-dim mt-0.5">—</p>
           </div>
         </div>
-        <button id="btn-back-modes" class="btn"><i data-lucide="chevron-left" class="text-[12px]"></i>Back</button>
+        <button id="btn-back-modes" class="btn"><i data-lucide="chevron-left" class="text-[12px]"></i>Назад</button>
       </div>
       <div class="h-px bg-line my-5"></div>
 
-      <!-- AI CONFIG -->
-      <div id="cfg-ai" class="grid lg:grid-cols-2 gap-6">
-        <div>
-          <p class="eyebrow mb-3"><span class="text-amber mr-2">01</span>Select Your Team</p>
-          <div class="grid gap-2.5" id="team-opts">
-            <button class="opt sel" data-team="radiant" style="--oc:#5aa469">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+      <!-- НАСТРОЙКИ: ОДИНОЧНАЯ ИГРА -->
+      <div id="cfg-ai" class="hidden">
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div>
+            <p class="eyebrow mb-3"><span class="text-amber mr-2">01</span>Ваша сторона</p>
+            <div class="border border-line bg-panel2 p-4">
               <div class="flex items-center gap-3">
                 <i data-lucide="sun" class="text-[18px] text-rad"></i>
                 <div>
-                  <p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">PLAY AS RADIANT</p>
-                  <p class="text-[12px] text-dim mt-1">You open the draft: R · D D · R R · D D · R R · D</p>
+                  <p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">ВЫ ИГРАЕТЕ ЗА СВЕТ</p>
+                  <p class="text-[12px] text-dim mt-1">Бот берёт Тьму и отвечает на ваши пики. Очерёдность: С · Т Т · С С · Т Т · С С · Т</p>
                 </div>
               </div>
-            </button>
-            <button class="opt" data-team="dire" style="--oc:#c2564b">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-center gap-3">
-                <i data-lucide="flame" class="text-[18px] text-dire"></i>
-                <div>
-                  <p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">PLAY AS DIRE</p>
-                  <p class="text-[12px] text-dim mt-1">The bot opens. You answer twice and close last.</p>
-                </div>
-              </div>
-            </button>
+              <p class="font-mono text-[9px] tracking-[.14em] text-dim mt-3 uppercase">Преимущество первого пика · 5 выборов</p>
+            </div>
           </div>
-        </div>
-        <div>
-          <p class="eyebrow mb-3"><span class="text-amber mr-2">02</span>Select AI Difficulty</p>
-          <div class="grid gap-2.5" id="diff-opts">
-            <button class="opt" data-diff="easy" style="--oc:#5aa469">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-start gap-3">
-                <span class="text-[15px] mt-0.5">🟢</span>
-                <div><p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">EASY BOT</p>
-                <p class="text-[12px] text-dim mt-1">Random hero that roughly fits the position. Never reads your draft.</p></div>
-              </div>
-            </button>
-            <button class="opt sel" data-diff="medium" style="--oc:#c9a227">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-start gap-3">
-                <span class="text-[15px] mt-0.5">🟡</span>
-                <div><p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">MEDIUM BOT</p>
-                <p class="text-[12px] text-dim mt-1">Sorts the eligible pool by meta index and position fit for a statistically strong team.</p></div>
-              </div>
-            </button>
-            <button class="opt" data-diff="hard" style="--oc:#c2564b">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-start gap-3">
-                <span class="text-[15px] mt-0.5">🔴</span>
-                <div><p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">HARD / PRO BOT</p>
-                <p class="text-[12px] text-dim mt-1">Builds a threat profile of your picks and counter-drafts while keeping its own composition balanced.</p></div>
-              </div>
-            </button>
+          <div>
+            <p class="eyebrow mb-3"><span class="text-amber mr-2">02</span>Сложность бота</p>
+            <div class="grid gap-2.5" id="diff-opts">
+              <button class="opt" data-diff="easy" style="--oc:#5aa469">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-start gap-3">
+                  <span class="text-[15px] mt-0.5">🟢</span>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">ЛЁГКИЙ БОТ</p>
+                  <p class="text-[12px] text-dim mt-1">Случайный герой, примерно подходящий под позицию. Ваш драфт не читает.</p></div>
+                </div>
+              </button>
+              <button class="opt sel" data-diff="medium" style="--oc:#c9a227">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-start gap-3">
+                  <span class="text-[15px] mt-0.5">🟡</span>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">СРЕДНИЙ БОТ</p>
+                  <p class="text-[12px] text-dim mt-1">Собирает статистически сильную команду по мета-индексу и соответствию позиции.</p></div>
+                </div>
+              </button>
+              <button class="opt" data-diff="hard" style="--oc:#c2564b">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-start gap-3">
+                  <span class="text-[15px] mt-0.5">🔴</span>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">СЛОЖНЫЙ БОТ</p>
+                  <p class="text-[12px] text-dim mt-1">Строит профиль угрозы от ваших пиков и контр-пикает, сохраняя баланс своего состава.</p></div>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- RANKED CONFIG -->
-      <div id="cfg-ranked" class="hidden grid lg:grid-cols-2 gap-6">
-        <div>
-          <p class="eyebrow mb-3"><span class="text-amber mr-2">01</span>Your Side In The Pub</p>
-          <div class="grid gap-2.5" id="side-opts">
-            <button class="opt sel" data-side="radiant" style="--oc:#5aa469">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-center gap-3">
-                <i data-lucide="sun" class="text-[18px] text-rad"></i>
-                <div><p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">TEAM 1 · RADIANT</p>
-                <p class="text-[12px] text-dim mt-1">Your graded side is Radiant. The coach still advises whoever is picking.</p></div>
-              </div>
-            </button>
-            <button class="opt" data-side="dire" style="--oc:#c2564b">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-center gap-3">
-                <i data-lucide="flame" class="text-[18px] text-dire"></i>
-                <div><p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">TEAM 2 · DIRE</p>
-                <p class="text-[12px] text-dim mt-1">Your graded side is Dire. The coach still advises whoever is picking.</p></div>
-              </div>
-            </button>
+      <!-- НАСТРОЙКИ: ПЕСОЧНИЦА -->
+      <div id="cfg-sandbox" class="hidden">
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div>
+            <p class="eyebrow mb-3"><span class="text-amber mr-2">01</span>Оцениваемая сторона</p>
+            <div class="grid gap-2.5" id="sb-side-opts">
+              <button class="opt sel" data-side="radiant" style="--oc:#5aa469">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="sun" class="text-[18px] text-rad"></i>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">СВЕТ — ВАША СТОРОНА</p>
+                  <p class="text-[12px] text-dim mt-1">Итоговый отчёт и шанс победы считаются от Света.</p></div>
+                </div>
+              </button>
+              <button class="opt" data-side="dire" style="--oc:#c2564b">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="flame" class="text-[18px] text-dire"></i>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">ТЬМА — ВАША СТОРОНА</p>
+                  <p class="text-[12px] text-dim mt-1">Итоговый отчёт и шанс победы считаются от Тьмы.</p></div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div>
+            <p class="eyebrow mb-3"><span class="text-amber mr-2">02</span>Как работает песочница</p>
+            <div class="border border-line bg-panel2 p-4">
+              <ul class="space-y-2 text-[12.5px] text-muted leading-relaxed">
+                <li class="flex gap-2"><i data-lucide="chevron-right" class="text-[13px] text-amber mt-[3px]"></i>Пики идут строго по цепочке: 1-й слот Света → 1-й слот Тьмы → 2-й слот Света → 2-й слот Тьмы и так далее до 10 героев.</li>
+                <li class="flex gap-2"><i data-lucide="chevron-right" class="text-[13px] text-amber mt-[3px]"></i>Обе стороны вводите вы вручную — удобно разбирать реальный драфт или про-матч.</li>
+                <li class="flex gap-2"><i data-lucide="chevron-right" class="text-[13px] text-amber mt-[3px]"></i>Подсказки тренера в этом режиме отключены: чистый ручной ввод без давления на решение.</li>
+                <li class="flex gap-2"><i data-lucide="chevron-right" class="text-[13px] text-amber mt-[3px]"></i>Любой слот можно очистить крестиком и ввести героя заново.</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div>
-          <p class="eyebrow mb-3"><span class="text-amber mr-2">02</span>Input Mode</p>
-          <div class="grid gap-2.5" id="order-opts">
-            <button class="opt sel" data-order="strict" style="--oc:#c9a227">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-start gap-3">
-                <i data-lucide="list-ordered" class="text-[16px] text-amber mt-0.5"></i>
-                <div><p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">STRICT CAPTAIN'S ORDER</p>
-                <p class="text-[12px] text-dim mt-1">R · D D · R R · D D · R R · D — exactly like a real ranked draft.</p></div>
-              </div>
-            </button>
-            <button class="opt" data-order="free" style="--oc:#5b8fc9">
-              <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
-              <div class="flex items-start gap-3">
-                <i data-lucide="mouse-pointer-click" class="text-[16px] text-ice mt-0.5"></i>
-                <div><p class="font-tech font-bold text-[13px] tracking-[.18em] text-txt">FREE PLACEMENT</p>
-                <p class="text-[12px] text-dim mt-1">Click any empty slot to target it, then pick a hero. Useful when your pub drafts out of order.</p></div>
-              </div>
-            </button>
+      </div>
+
+      <!-- НАСТРОЙКИ: РЕНКЕД ПОМОЩНИК -->
+      <div id="cfg-coach" class="hidden">
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div>
+            <p class="eyebrow mb-3"><span class="text-amber mr-2">01</span>Ваша сторона в пабе</p>
+            <div class="grid gap-2.5" id="coach-side-opts">
+              <button class="opt sel" data-side="radiant" style="--oc:#5aa469">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="sun" class="text-[18px] text-rad"></i>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">СВЕТ</p>
+                  <p class="text-[12px] text-dim mt-1">Ваша оцениваемая сторона — Свет. Тренер подсказывает тому, кто пикает сейчас.</p></div>
+                </div>
+              </button>
+              <button class="opt" data-side="dire" style="--oc:#c2564b">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="flame" class="text-[18px] text-dire"></i>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">ТЬМА</p>
+                  <p class="text-[12px] text-dim mt-1">Ваша оцениваемая сторона — Тьма. Тренер подсказывает тому, кто пикает сейчас.</p></div>
+                </div>
+              </button>
+            </div>
           </div>
-          <p class="font-mono text-[9.5px] leading-relaxed tracking-[.08em] text-dim mt-3 border border-line bg-panel2 p-3">
-            The coach recalculates the full remaining pool after every single pick and always suggests the top three answers for the side that is currently drafting.
-          </p>
+          <div>
+            <p class="eyebrow mb-3"><span class="text-amber mr-2">02</span>Режим ввода</p>
+            <div class="grid gap-2.5" id="order-opts">
+              <button class="opt sel" data-order="strict" style="--oc:#c9a227">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="list-ordered" class="text-[16px] text-amber mt-0.5"></i>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">СТРОГИЙ ПОРЯДОК КАПИТАНА</p>
+                  <p class="text-[12px] text-dim mt-1">С · Т Т · С С · Т Т · С С · Т — как в настоящем рейтинговом драфте.</p></div>
+                </div>
+              </button>
+              <button class="opt" data-order="free" style="--oc:#5b8fc9">
+                <span class="tick"><i data-lucide="check" class="text-[14px]"></i></span>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="mouse-pointer-click" class="text-[16px] text-ice mt-0.5"></i>
+                  <div><p class="font-tech font-bold text-[13px] tracking-[.14em] text-txt">СВОБОДНОЕ РАЗМЕЩЕНИЕ</p>
+                  <p class="text-[12px] text-dim mt-1">Кликните любой пустой слот, чтобы нацелить его, затем выберите героя. Удобно, когда в пабе пикают вне очереди.</p></div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="mt-7 flex flex-col sm:flex-row items-center gap-3 justify-center">
         <button id="btn-start" class="btn btn-primary !py-3.5 !px-10 !text-[11px]" disabled>
-          <i data-lucide="play" class="text-[13px]"></i> <span id="start-label">Start Simulation</span>
+          <i data-lucide="play" class="text-[13px]"></i> <span id="start-label">Начать матч</span>
         </button>
-        <p id="start-hint" class="font-mono text-[9.5px] tracking-[.18em] uppercase text-dim">Loading hero roster…</p>
+        <p id="start-hint" class="font-mono text-[9.5px] tracking-[.14em] uppercase text-dim">Загрузка ростера героев…</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============ ANALYSIS ============ -->
+<!-- ============ АНАЛИЗ ============ -->
 <div id="analysis" class="fixed inset-0 z-[300] flex items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="a-title">
   <div id="a-backdrop" class="absolute inset-0 bg-base/92 backdrop-blur-sm"></div>
   <div id="a-panel" class="relative w-full max-w-[1180px] max-h-[94svh] overflow-y-auto panel !bg-panel">
@@ -653,9 +678,9 @@ body.locked{ overflow:hidden; }
     <div class="panel-head sticky top-0 z-20 bg-panel2">
       <div class="flex items-center gap-2">
         <i data-lucide="bar-chart-3" class="text-[13px] text-amber"></i>
-        <span id="a-title" class="font-tech font-bold text-[11.5px] tracking-[.24em]">MATCHUP ANALYSIS</span>
+        <span id="a-title" class="font-tech font-bold text-[11.5px] tracking-[.2em]">АНАЛИЗ МАТЧ-АПА</span>
       </div>
-      <span id="a-sub" class="font-mono text-[9.5px] tracking-[.16em] text-dim truncate">—</span>
+      <span id="a-sub" class="font-mono text-[9.5px] tracking-[.14em] text-dim truncate">—</span>
     </div>
 
     <div class="p-4 sm:p-6">
@@ -663,66 +688,67 @@ body.locked{ overflow:hidden; }
         <div class="flex flex-col sm:flex-row items-start gap-5">
           <div id="grade-badge" class="w-[86px] h-[86px] shrink-0 grid place-items-center border-2 font-tech font-bold text-[42px]" style="border-color:#c9a227;color:#c9a227">—</div>
           <div class="flex-1 min-w-0">
-            <p id="grade-title" class="font-tech font-bold text-[17px] tracking-[.14em]">—</p>
+            <p id="grade-title" class="font-tech font-bold text-[17px] tracking-[.1em]">—</p>
             <p id="grade-body" class="text-[13px] leading-relaxed text-muted mt-2">—</p>
           </div>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
-          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Your composite</p><p class="font-mono text-[20px] font-bold mt-1" id="grade-you">0</p></div>
-          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Opposite side</p><p class="font-mono text-[20px] font-bold mt-1 text-uni" id="grade-bot">0</p></div>
-          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Delta</p><p class="font-mono text-[20px] font-bold mt-1" id="grade-delta">0</p></div>
-          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Rows won</p><p class="font-mono text-[20px] font-bold mt-1" id="grade-rows">0</p></div>
+          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Ваш рейтинг</p><p class="font-mono text-[20px] font-bold mt-1" id="grade-you">0</p></div>
+          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Рейтинг соперника</p><p class="font-mono text-[20px] font-bold mt-1 text-uni" id="grade-bot">0</p></div>
+          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Разница</p><p class="font-mono text-[20px] font-bold mt-1" id="grade-delta">0</p></div>
+          <div class="border border-line bg-panel px-3 py-2.5"><p class="eyebrow">Строк выиграно</p><p class="font-mono text-[20px] font-bold mt-1" id="grade-rows">0</p></div>
         </div>
       </div>
 
       <div class="border border-line bg-panel2 p-4 mb-5">
-        <p class="eyebrow mb-3">Win Probability Model</p>
-        <div class="flex justify-between font-mono text-[10px] tracking-[.14em] mb-2">
-          <span id="wp-you-label" class="text-txt">YOU 50%</span>
-          <span id="wp-bot-label" class="text-uni">50% OPP</span>
+        <p class="eyebrow mb-3">Модель шанса победы</p>
+        <div class="flex justify-between font-mono text-[10px] tracking-[.12em] mb-2">
+          <span id="wp-you-label" class="text-txt">ВЫ 50%</span>
+          <span id="wp-bot-label" class="text-uni">50% СОПЕРНИК</span>
         </div>
         <div class="splitbar"><span id="wp-you" style="background:#5aa469"></span><span id="wp-bot" style="background:#8a7bd8"></span></div>
-        <p id="wp-note" class="font-mono text-[9.5px] tracking-[.12em] uppercase text-dim mt-3 text-center">—</p>
-        <p class="font-mono text-[9px] leading-relaxed tracking-[.06em] text-dim mt-3 border-t border-line pt-3">
-          p = 1 / (1 + 10^(−Δcomposite / 144)), clamped 12–88%, ±2% execution modifier for bot difficulty (0% in Ranked Practice).
+        <p id="wp-note" class="font-mono text-[9.5px] tracking-[.1em] uppercase text-dim mt-3 text-center">—</p>
+        <p class="font-mono text-[9px] leading-relaxed tracking-[.04em] text-dim mt-3 border-t border-line pt-3">
+          p = 1 / (1 + 10^(−Δ / 144)), ограничено 12–88%, с поправкой ±2% на сложность бота (в песочнице и у тренера поправка 0%).
+          Разница в 5 пунктов намеренно даёт близкий шанс, а не разгром.
         </p>
       </div>
 
       <div class="border border-line bg-panel2 p-4 mb-5">
-        <div class="flex items-center justify-between mb-4">
-          <p id="m-left-label" class="font-tech font-bold text-[11px] tracking-[.2em]">YOU</p>
-          <p class="eyebrow">Per-Hero Profile Mean</p>
-          <p id="m-right-label" class="font-tech font-bold text-[11px] tracking-[.2em] text-uni">OPP</p>
+        <div class="grid grid-cols-[1fr_200px_1fr] gap-10px items-center mb-4">
+          <p id="m-left-label" class="text-right font-tech font-bold text-[11px] tracking-[.16em]">ВЫ</p>
+          <p class="eyebrow text-center">Среднее профилей героев</p>
+          <p id="m-right-label" class="font-tech font-bold text-[11px] tracking-[.16em] text-uni">СОПЕРНИК</p>
         </div>
         <div id="a-metrics" class="flex flex-col gap-3"></div>
-        <p id="a-method" class="font-mono text-[9px] leading-relaxed tracking-[.06em] text-dim mt-4 border-t border-line pt-3">—</p>
+        <p id="a-method" class="font-mono text-[9px] leading-relaxed tracking-[.04em] text-dim mt-4 border-t border-line pt-3">—</p>
       </div>
 
       <div class="border border-line bg-panel2 p-4 mb-5">
-        <p class="eyebrow mb-3 text-center">Head To Head · Source Of Every Quoted Number</p>
+        <p class="eyebrow mb-3 text-center">Прямое сравнение · источник всех цитируемых чисел</p>
         <div id="a-h2h" class="grid sm:grid-cols-2 gap-2"></div>
       </div>
 
       <div class="grid md:grid-cols-2 gap-4 mb-5">
         <div class="border border-line bg-panel2 p-4">
-          <p id="a-lineup-you-title" class="eyebrow mb-3">Your Lineup</p>
+          <p id="a-lineup-you-title" class="eyebrow mb-3">Ваш состав</p>
           <div id="a-lineup-you" class="grid grid-cols-5 gap-2"></div>
         </div>
         <div class="border border-line bg-panel2 p-4">
-          <p id="a-lineup-bot-title" class="eyebrow mb-3">Opposite Lineup</p>
+          <p id="a-lineup-bot-title" class="eyebrow mb-3">Состав соперника</p>
           <div id="a-lineup-bot" class="grid grid-cols-5 gap-2"></div>
         </div>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-4">
-        <div><p id="a-notes-you-title" class="eyebrow mb-3">Your Composition</p><div id="a-notes-you" class="flex flex-col gap-2"></div></div>
-        <div><p id="a-notes-bot-title" class="eyebrow mb-3">Opposite Composition</p><div id="a-notes-bot" class="flex flex-col gap-2"></div></div>
+        <div><p id="a-notes-you-title" class="eyebrow mb-3">Ваш состав · разбор</p><div id="a-notes-you" class="flex flex-col gap-2"></div></div>
+        <div><p id="a-notes-bot-title" class="eyebrow mb-3">Состав соперника · разбор</p><div id="a-notes-bot" class="flex flex-col gap-2"></div></div>
       </div>
 
       <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
-        <button id="a-close2" class="btn"><i data-lucide="x" class="text-[12px]"></i>Close</button>
-        <button id="a-redraft" class="btn"><i data-lucide="refresh-ccw" class="text-[12px]"></i>Rematch</button>
-        <button id="a-newsetup" class="btn btn-primary"><i data-lucide="layout-grid" class="text-[12px]"></i>Main Menu</button>
+        <button id="a-close2" class="btn"><i data-lucide="x" class="text-[12px]"></i>Закрыть</button>
+        <button id="a-redraft" class="btn"><i data-lucide="refresh-ccw" class="text-[12px]"></i>Реванш</button>
+        <button id="a-newsetup" class="btn btn-primary"><i data-lucide="layout-grid" class="text-[12px]"></i>Главное меню</button>
       </div>
     </div>
   </div>
@@ -730,18 +756,18 @@ body.locked{ overflow:hidden; }
 
 <script>
 /* ============================================================================
-   DRAFTSIM · build 4.0
-   MODES : solo-vs-AI · RANKED PRACTICE (counter-pick trainer) · online P2P (soon)
-   COACH : live top-3 suggestions recomputed from the remaining pool after every
-           single pick — curated hard counters + threat vectors + missing-role
-           synergy + position fit + meta index, each with a one-line reason.
-   IMAGES: https://opendota.com + hero.img → mirror → generated name placeholder.
-   ADS   : Yandex Games interstitial immediately before the report is revealed.
+   DRAFTSIM · сборка 5.0 — полностью на русском
+   ---------------------------------------------------------------------------
+   РЕЖИМЫ : «Одиночная игра (VS ИИ)» · «Анализатор матч-апов (Песочница)» ·
+            «Ренкед помощник (Живой тренер)».
+   ДАННЫЕ : OpenDota API (напрямую) → цепочка прокси → локальный ростер 125+.
+   КАРТИНКИ: https://opendota.com + hero.img → зеркало → серый плейсхолдер с именем.
+   РЕКЛАМА : ysdk.adv.showFullscreenAdv() строго перед показом итогового отчёта.
    ========================================================================= */
 (function(){
 'use strict';
 
-/* ------------------------------ utils ------------------------------ */
+/* ------------------------------ утилиты ------------------------------ */
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
@@ -754,7 +780,13 @@ function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 function icons(){ try{ if(window.lucide&&typeof window.lucide.createIcons==='function') window.lucide.createIcons(); }catch(e){} }
 let toastTimer=null;
 function toast(m){ const t=$('#toast'); t.innerHTML=m; t.classList.add('show');
-  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2600); }
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2700); }
+function plural(n,one,few,many){
+  const m10=n%10,m100=n%100;
+  if(m10===1&&m100!==11) return one;
+  if(m10>=2&&m10<=4&&(m100<10||m100>=20)) return few;
+  return many;
+}
 
 /* ------------------------------ YANDEX SDK ------------------------------ */
 let ysdk=null, yGameplay=null, adsBusy=false;
@@ -766,7 +798,6 @@ function yInit(){
         ysdk=sdk;
         try{ if(sdk.features&&sdk.features.LoadingAPI&&sdk.features.LoadingAPI.ready) sdk.features.LoadingAPI.ready(); }catch(e){}
         try{ if(sdk.getGameplayApi) yGameplay=sdk.getGameplayApi(); }catch(e){}
-        try{ document.body.classList.add('ysdk-'+((sdk.environment&&sdk.environment.i18n&&sdk.environment.i18n.lang)||'en')); }catch(e){}
         resolve(sdk);
       }).catch(()=>resolve(null));
     }catch(e){ resolve(null); }
@@ -774,7 +805,6 @@ function yInit(){
 }
 function yGameplayStart(){ try{ if(yGameplay&&yGameplay.start) yGameplay.start(); }catch(e){} }
 function yGameplayStop(){ try{ if(yGameplay&&yGameplay.stop) yGameplay.stop(); }catch(e){} }
-/* interstitial shown right before the final matchup score is revealed */
 function showInterstitial(cb){
   let done=false;
   const finish=()=>{ if(done) return; done=true; adsBusy=false; cb&&cb(); };
@@ -785,32 +815,48 @@ function showInterstitial(cb){
       setTimeout(finish,15000);
       return;
     }
-  }catch(e){ /* fall through */ }
+  }catch(e){ /* продолжаем без рекламы */ }
   finish();
 }
 function ySubmitScore(score){
-  try{ if(ysdk&&ysdk.getLeaderboards) ysdk.getLeaderboards().then(lb=>{ try{ lb.setLeaderboardScore('draft_score',Math.round(score)); }catch(e){} }).catch(()=>{}); }catch(e){}
+  try{
+    if(ysdk&&ysdk.getLeaderboards) ysdk.getLeaderboards()
+      .then(lb=>{ try{ lb.setLeaderboardScore('draft_score',Math.round(score)); }catch(e){} })
+      .catch(()=>{});
+  }catch(e){}
 }
 
-/* ------------------------------ constants ------------------------------ */
+/* ------------------------------ константы ------------------------------ */
 const ATTR={
-  str:{key:'str',label:'Strength',short:'STR',color:'#c2564b',icon:'sword'},
-  agi:{key:'agi',label:'Agility',short:'AGI',color:'#5aa469',icon:'wind'},
-  int:{key:'int',label:'Intelligence',short:'INT',color:'#5b8fc9',icon:'brain'},
-  all:{key:'all',label:'Universal',short:'UNI',color:'#8a7bd8',icon:'infinity'}
+  str:{key:'str',label:'Сила',short:'СИЛ',color:'#c2564b',icon:'sword'},
+  agi:{key:'agi',label:'Ловкость',short:'ЛОВ',color:'#5aa469',icon:'wind'},
+  int:{key:'int',label:'Интеллект',short:'ИНТ',color:'#5b8fc9',icon:'brain'},
+  all:{key:'all',label:'Универсал',short:'УНИ',color:'#8a7bd8',icon:'infinity'}
 };
 const ROLES=['Carry','Support','Nuker','Disabler','Durable','Escape','Pusher','Initiator','Jungle'];
+const ROLE_RU={Carry:'Carry',Support:'Support',Nuker:'Nuker',Disabler:'Disabler',Durable:'Durable',
+  Escape:'Escape',Pusher:'Pusher',Initiator:'Initiator',Jungle:'Jungle'};
 const ROLE_ICON={Carry:'sword',Support:'heart-handshake',Nuker:'flame',Disabler:'link',Durable:'shield',
   Escape:'footprints',Pusher:'castle',Initiator:'zap',Jungle:'trees'};
-const POSITIONS=[{pos:1,name:'Carry'},{pos:2,name:'Mid'},{pos:3,name:'Offlane'},{pos:4,name:'Soft Support'},{pos:5,name:'Hard Support'}];
-const DRAFT_ORDER=[
+const POSITIONS=[
+  {pos:1,name:'Керри'},{pos:2,name:'Мидер'},{pos:3,name:'Оффлейнер'},
+  {pos:4,name:'Частичная поддержка'},{pos:5,name:'Полная поддержка'}
+];
+const TEAM_RU={radiant:'СВЕТ',dire:'ТЬМА'};
+/* порядок капитана (одиночная игра и тренер) */
+const ORDER_CM=[
   {team:'radiant',pos:1},{team:'dire',pos:1},{team:'dire',pos:2},{team:'radiant',pos:2},{team:'radiant',pos:3},
   {team:'dire',pos:3},{team:'dire',pos:4},{team:'radiant',pos:4},{team:'radiant',pos:5},{team:'dire',pos:5}
 ];
+/* порядок песочницы: С1 Т1 С2 Т2 … */
+const ORDER_SANDBOX=[
+  {team:'radiant',pos:1},{team:'dire',pos:1},{team:'radiant',pos:2},{team:'dire',pos:2},{team:'radiant',pos:3},
+  {team:'dire',pos:3},{team:'radiant',pos:4},{team:'dire',pos:4},{team:'radiant',pos:5},{team:'dire',pos:5}
+];
 const DIFFS={
-  easy:{label:'Easy Bot',short:'EASY',think:1500,probAdj:+0.02},
-  medium:{label:'Medium Bot',short:'MEDIUM',think:1650,probAdj:0},
-  hard:{label:'Hard Bot',short:'HARD',think:1850,probAdj:-0.02}
+  easy:{label:'Лёгкий бот',short:'ЛЁГКИЙ',think:1500,probAdj:+0.02},
+  medium:{label:'Средний бот',short:'СРЕДНИЙ',think:1650,probAdj:0},
+  hard:{label:'Сложный бот',short:'СЛОЖНЫЙ',think:1850,probAdj:-0.02}
 };
 const POS_ROLES={
   1:['Carry','Escape','Jungle'], 2:['Carry','Nuker','Escape','Disabler'],
@@ -838,7 +884,7 @@ const META_TABLE={
   'Phantom Lancer':70,'Doom':75,'Ring Master':70,'Kez':74
 };
 
-/* ---- curated hard-counter database (OpenDota image keys) ---- */
+/* ---- база жёстких контр-пиков (ключи картинок OpenDota) ---- */
 const COUNTER_DB={
   antimage:['axe','legion_commander','pudge','bloodseeker','disruptor','nyx_assassin'],
   storm_spirit:['silencer','disruptor','nyx_assassin','bane','obsidian_destroyer'],
@@ -847,7 +893,7 @@ const COUNTER_DB={
   morphling:['ancient_apparition','doom_bringer','nyx_assassin','axe'],
   slark:['ancient_apparition','ursa','axe','bloodseeker'],
   weaver:['bloodseeker','spirit_breaker','nyx_assassin','slardar'],
-  riki:['bloodseeker','spirit_breaker','slardar','dust'],
+  riki:['bloodseeker','spirit_breaker','slardar'],
   windrunner:['nyx_assassin','spirit_breaker','bane','pudge'],
   puck:['nyx_assassin','silencer','bane','disruptor'],
   void_spirit:['silencer','bane','nyx_assassin','disruptor'],
@@ -872,7 +918,7 @@ const COUNTER_DB={
   dragon_knight:['ancient_apparition','viper','razor'],
   sven:['viper','razor','disruptor'],
   chaos_knight:['ancient_apparition','viper','enigma'],
-  wraith_king:['ancient_apparition','doom_bringer','viper'],
+  skeleton_king:['ancient_apparition','doom_bringer','viper'],
   axe:['viper','razor','sniper','drow_ranger'],
   pudge:['life_stealer','juggernaut','phantom_lancer','antimage'],
   tidehunter:['ursa','life_stealer','viper'],
@@ -908,7 +954,6 @@ const COUNTER_DB={
   omniknight:['doom_bringer','nyx_assassin','pugna'],
   abaddon:['doom_bringer','ancient_apparition','pugna'],
   wisp:['nyx_assassin','spirit_breaker','axe'],
-  io:['nyx_assassin','spirit_breaker','axe'],
   enchantress:['nyx_assassin','doom_bringer','pugna'],
   chen:['doom_bringer','nyx_assassin','pugna'],
   visage:['doom_bringer','pugna','ancient_apparition'],
@@ -955,7 +1000,6 @@ const COUNTER_DB={
   elder_titan:['viper','sniper','nyx_assassin'],
   earth_spirit:['silencer','disruptor','nyx_assassin'],
   techies:['slardar','bloodseeker','nyx_assassin'],
-  kezz:['axe','legion_commander'],
   kez:['axe','legion_commander','disruptor'],
   ringmaster:['nyx_assassin','pugna','spirit_breaker'],
   abyssal_underlord:['viper','ursa','enigma'],
@@ -964,11 +1008,10 @@ const COUNTER_DB={
   primal_beast:['viper','razor','disruptor'],
   mars:['viper','razor','life_stealer'],
   kunkka:['nyx_assassin','viper','pugna'],
-  lina:['nyx_assassin','pugna','antimage'],
-  storm:['silencer','nyx_assassin']
+  lina:['nyx_assassin','pugna','antimage']
 };
 
-/* ---- images ---- */
+/* ---- картинки ---- */
 const IMG_BASE='/apps/dota2/images/dota_react/heroes/';
 const IMG_HOSTS=['https://opendota.com','https://cdn.opendota.com'];
 const NAME_KEY_MAP={
@@ -1032,7 +1075,7 @@ function placeholderFor(hero){
   x.fillStyle=a.color; x.fillRect(0,0,3,H);
   x.textAlign='center'; x.textBaseline='middle';
   x.font='600 20px Inter, system-ui, sans-serif';
-  const lines=wrapLines(x,String(hero.name||'UNKNOWN').toUpperCase(),W-52);
+  const lines=wrapLines(x,String(hero.name||'НЕИЗВЕСТНО').toUpperCase(),W-52);
   const startY=H/2-((lines.length-1)*12);
   x.fillStyle='#f2f5f8'; lines.forEach((ln,i)=>x.fillText(ln,W/2,startY+i*24));
   x.font='500 10px "JetBrains Mono", monospace'; x.fillStyle='#7d8792';
@@ -1045,7 +1088,7 @@ const GENERIC_PH=(function(){
   x.fillStyle='#16191d'; x.fillRect(0,0,W,H);
   x.strokeStyle='#2a323b'; x.strokeRect(.5,.5,W-1,H-1);
   x.fillStyle='#7d8792'; x.textAlign='center'; x.textBaseline='middle';
-  x.font='600 13px "JetBrains Mono", monospace'; x.fillText('HERO',W/2,H/2);
+  x.font='600 13px "JetBrains Mono", monospace'; x.fillText('ГЕРОЙ',W/2,H/2);
   return cv.toDataURL('image/png');
 })();
 function imgFail(img){
@@ -1058,12 +1101,12 @@ function imgFail(img){
     if(idx<IMG_HOSTS.length){ img.setAttribute('data-cdn',String(idx)); img.src=heroUrl(hero,idx); return; }
     img.onerror=null; img.removeAttribute('onerror');
     const t=img.closest('.tile'); if(t) t.classList.add('no-img');
-    img.alt=hero.name+' (portrait unavailable)';
+    img.alt=hero.name+' (портрет недоступен)';
     img.src=placeholderFor(hero);
   }catch(e){ try{ img.onerror=null; img.src=GENERIC_PH; }catch(_){} }
 }
 
-/* ---- fetch chain ---- */
+/* ---- цепочка загрузки данных ---- */
 const DIRECT_ENDPOINTS=['https://api.opendota.com/api/heroStats','https://api.opendota.com/api/heroes'];
 const PROXY_WRAPPERS=[
   {name:'allorigins',build:u=>'https://api.allorigins.win/get?url='+encodeURIComponent(u),
@@ -1077,7 +1120,7 @@ async function fetchJSON(url,timeout){
   try{
     const r=await fetch(url,{signal:c.signal,headers:{'Accept':'application/json, text/plain, */*'},mode:'cors'});
     if(!r.ok) throw new Error('HTTP '+r.status);
-    const txt=await r.text(); if(!txt) throw new Error('Empty body');
+    const txt=await r.text(); if(!txt) throw new Error('Пустой ответ');
     return JSON.parse(txt);
   } finally { clearTimeout(t); }
 }
@@ -1095,18 +1138,18 @@ function coerceArray(p){
 }
 async function loadHeroData(onProgress){
   const attempts=[];
-  DIRECT_ENDPOINTS.forEach(u=>attempts.push({label:'direct · '+u.split('/').pop(),url:u,unwrap:d=>d}));
+  DIRECT_ENDPOINTS.forEach(u=>attempts.push({label:'напрямую · '+u.split('/').pop(),url:u,unwrap:d=>d}));
   PROXY_WRAPPERS.forEach(p=>DIRECT_ENDPOINTS.forEach(u=>attempts.push({label:p.name,url:p.build(u),unwrap:p.unwrap})));
   for(let i=0;i<attempts.length;i++){
     const a=attempts[i]; if(onProgress) onProgress(i,attempts.length,a.label);
     try{ const res=await fetchJSON(a.url,12000); const arr=coerceArray(a.unwrap?a.unwrap(res):res); if(arr) return {data:arr,source:a.label}; }
-    catch(err){ /* next */ }
+    catch(err){ /* следующий источник */ }
   }
   return null;
 }
 
 /* ==========================================================================
-   OFFLINE ROSTER — [key,'Name',attr,[roles]]
+   ЛОКАЛЬНЫЙ РОСТЕР — [ключ,'Имя',атрибут,[роли]]
    ========================================================================= */
 const FALLBACK_TABLE=[
   ['axe','Axe','str',['Initiator','Durable','Disabler','Jungle']],
@@ -1248,40 +1291,39 @@ const FALLBACK_HEROES=FALLBACK_TABLE.map((row,i)=>({
   attack_type:RANGED_KEYS[row[0]]?'Ranged':'Melee', img:IMG_BASE+row[0]+'.png', roles:row[3]
 }));
 
-/* ------------------------------ state ------------------------------ */
+/* ------------------------------ состояние ------------------------------ */
 const state={
   heroes:[], byId:new Map(), cardById:new Map(),
   draft:{ radiant:[null,null,null,null,null], dire:[null,null,null,null,null] },
   history:[], targetSlot:null,
   query:'', attr:'all', role:'all', sort:'name',
   offline:false, source:'',
-  mode:null,                       /* 'ai' | 'ranked' */
+  mode:null,                       /* 'ai' | 'sandbox' | 'coach' */
   playerTeam:'radiant', aiTeam:'dire', difficulty:'medium',
-  rankedSide:'radiant', freeOrder:false,
-  started:false, locked:false, aiTimer:null, aiToken:0, coach:true,
+  sandboxSide:'radiant', coachSide:'radiant', freeOrder:false,
+  started:false, locked:false, aiTimer:null, aiToken:0, highlight:true,
   coachCache:[]
 };
 const pickCount=()=> state.draft.radiant.filter(Boolean).length + state.draft.dire.filter(Boolean).length;
+function orderList(){ return state.mode==='sandbox'?ORDER_SANDBOX:ORDER_CM; }
 function activeSlot(){
-  if(state.mode==='ranked'&&state.freeOrder&&state.targetSlot){
+  if(state.mode==='coach'&&state.freeOrder&&state.targetSlot){
     const t=state.targetSlot;
     if(!state.draft[t.team][t.pos-1]) return t;
   }
-  for(let i=0;i<DRAFT_ORDER.length;i++){
-    const o=DRAFT_ORDER[i];
-    if(!state.draft[o.team][o.pos-1]) return o;
-  }
+  const list=orderList();
+  for(let i=0;i<list.length;i++){ const o=list[i]; if(!state.draft[o.team][o.pos-1]) return o; }
   return null;
 }
-function currentTurn(){ return activeSlot(); }
-function isAiTurn(){
-  if(state.mode!=='ai') return false;
-  const s=activeSlot();
-  return !!s && s.team===state.aiTeam;
+function gradedSide(){
+  if(state.mode==='ai') return state.playerTeam;
+  if(state.mode==='sandbox') return state.sandboxSide;
+  return state.coachSide;
 }
+function opponentSide(){ return gradedSide()==='radiant'?'dire':'radiant'; }
 
 /* ============================================================================
-   LOADING
+   ЗАГРУЗКА РОСТЕРА
    ========================================================================= */
 function prettify(k){ return String(k).replace(/^npc_dota_hero_/,'').split('_').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' '); }
 function metaScore(h){ const t=META_TABLE[h.name]; if(typeof t==='number') return t; return Math.round(56+hash01(h.key||h.name)*22); }
@@ -1304,56 +1346,56 @@ function setBoot(p,t){ const f=$('#boot-fill'); if(f) f.style.width=p+'%'; if(t)
 
 async function loadHeroes(){
   $('#status-dot').className='w-1.5 h-1.5 bg-amber';
-  $('#status-text').textContent='LOADING';
+  $('#status-text').textContent='ЗАГРУЗКА';
   $('#btn-start').disabled=true; $('#btn-to-config').disabled=!state.mode;
-  $('#start-hint').textContent='Loading hero roster…';
-  setBoot(8,'Contacting OpenDota…');
+  $('#start-hint').textContent='Загрузка ростера героев…';
+  setBoot(8,'Запрос к OpenDota…');
 
-  const result=await loadHeroData((i,total,label)=>setBoot(8+Math.round(i/Math.max(total,1)*62),'Trying '+label+'…'))
-    .catch(err=>{ console.warn('[draftsim] loader error',err); return null; });
+  const result=await loadHeroData((i,total,label)=>setBoot(8+Math.round(i/Math.max(total,1)*62),'Пробую '+label+'…'))
+    .catch(err=>{ console.warn('[draftsim] ошибка загрузки',err); return null; });
 
   let rows,source,offline=false;
   if(result&&Array.isArray(result.data)&&result.data.length){ rows=result.data; source='OpenDota · '+result.source; }
-  else { rows=FALLBACK_HEROES; source='Offline · local roster ('+FALLBACK_HEROES.length+')'; offline=true; }
+  else { rows=FALLBACK_HEROES; source='Офлайн · локальный ростер ('+FALLBACK_HEROES.length+')'; offline=true; }
 
-  setBoot(78,'Normalising '+rows.length+' heroes…');
+  setBoot(78,'Обработка '+rows.length+' героев…');
   const seen=new Set();
   state.heroes=rows.map(normalize).filter(h=>{ if(!h) return false; const k=String(h.id); if(seen.has(k)) return false; seen.add(k); return true; })
     .sort((a,b)=>a.name.localeCompare(b.name,'en',{sensitivity:'base'}));
   state.byId.clear(); state.heroes.forEach(h=>state.byId.set(String(h.id),h));
   state.offline=offline; state.source=source;
 
-  setBoot(90,'Rendering roster…');
-  buildRoleChips(); renderGrid(); setBoot(100,'Ready');
+  setBoot(90,'Отрисовка ростера…');
+  buildRoleChips(); renderGrid(); setBoot(100,'Готово');
 
   $('#status-dot').className='w-1.5 h-1.5 '+(offline?'bg-dire':'bg-rad');
-  $('#status-text').textContent=offline?'OFFLINE ROSTER':'LIVE · OPENDOTA';
-  $('#hero-count').textContent=state.heroes.length+' HEROES';
-  $('#roster-source').textContent=source+' · IMAGES: opendota.com';
-  $('#setup-source').textContent='ROSTER: '+source+' · '+state.heroes.length+' HEROES';
+  $('#status-text').textContent=offline?'ОФЛАЙН-РОСТЕР':'LIVE · OPENDOTA';
+  $('#hero-count').textContent=state.heroes.length+' ГЕРОЕВ';
+  $('#roster-source').textContent=source+' · КАРТИНКИ: opendota.com';
+  $('#setup-source').textContent='РОСТЕР: '+source+' · '+state.heroes.length+' ГЕРОЕВ';
   $('#btn-start').disabled=false;
-  $('#start-hint').textContent=state.heroes.length+' heroes ready';
+  $('#start-hint').textContent=state.heroes.length+' героев готово к драфту';
   icons();
   try{ if(ysdk&&ysdk.features&&ysdk.features.LoadingAPI&&ysdk.features.LoadingAPI.ready) ysdk.features.LoadingAPI.ready(); }catch(e){}
 
   setTimeout(()=>$('#boot').classList.add('done'),280);
-  if(offline) setTimeout(()=>toast('Network blocked — '+state.heroes.length+' heroes loaded offline'),1000);
-  else setTimeout(()=>toast('Live roster synced · '+state.heroes.length+' heroes'),800);
+  if(offline) setTimeout(()=>toast('Сеть недоступна — загружен локальный ростер: '+state.heroes.length+' героев'),1000);
+  else setTimeout(()=>toast('Ростер синхронизирован · '+state.heroes.length+' героев'),900);
   renderCoach();
 }
 
 /* ============================================================================
-   ROSTER UI
+   РОСТЕР: ФИЛЬТРЫ И СЕТКА
    ========================================================================= */
 function buildRoleChips(){
   const host=$('#role-filters'); if(!host||host.childElementCount) return;
   const all=document.createElement('button');
-  all.className='on'; all.dataset.role='all'; all.textContent='All';
+  all.className='on'; all.dataset.role='all'; all.textContent='Все';
   host.appendChild(all);
   ROLES.forEach(r=>{
     const b=document.createElement('button');
     b.dataset.role=r;
-    b.innerHTML='<i data-lucide="'+(ROLE_ICON[r]||'circle')+'" class="text-[11px]"></i>'+r;
+    b.innerHTML='<i data-lucide="'+(ROLE_ICON[r]||'circle')+'" class="text-[11px]"></i>'+(ROLE_RU[r]||r);
     host.appendChild(b);
   });
   $$('#role-filters button').forEach(b=>b.addEventListener('click',()=>{
@@ -1387,7 +1429,7 @@ function renderGrid(){
         '<p class="t-name">'+esc(h.name)+'</p>'+
         '<p class="t-roles">'+esc(h.roles.slice(0,3).join(' · '))+'</p>'+
       '</div>'+
-      '<span class="t-taken"><span class="tag" data-taken-tag>DRAFTED</span></span>';
+      '<span class="t-taken"><span class="tag" data-taken-tag>В ДРАФТЕ</span></span>';
     frag.appendChild(card);
     state.cardById.set(String(h.id),card);
   });
@@ -1429,21 +1471,21 @@ function teamOf(id){
   return null;
 }
 function syncTakenStates(){
+  const mine=gradedSide();
   state.heroes.forEach(h=>{
     const card=state.cardById.get(String(h.id)); if(!card) return;
     const t=teamOf(h.id);
     card.classList.toggle('taken',!!t);
     const tag=card.querySelector('[data-taken-tag]');
     if(tag&&t){
-      const mine = state.mode==='ranked' ? t===state.rankedSide : t===state.playerTeam;
-      tag.className='tag '+(mine?'tag-you':(t==='radiant'?'tag-rad':'tag-dire'));
-      tag.textContent=(state.mode==='ranked'?'TEAM '+(t==='radiant'?'1':'2'):(mine?'YOU · ':'BOT · '))+(t==='radiant'?'RADIANT':'DIRE');
+      tag.className='tag '+(t===mine?'tag-you':(t==='radiant'?'tag-rad':'tag-dire'));
+      tag.textContent=(state.mode==='ai'?(t===state.playerTeam?'ВЫ · ':'БОТ · '):(t===mine?'ВАША · ':'СОПЕРНИК · '))+TEAM_RU[t];
     }
   });
 }
 
 /* ============================================================================
-   DRAFT BOARD
+   ДОСКА ДРАФТА
    ========================================================================= */
 function buildSlots(){
   ['radiant','dire'].forEach(team=>{
@@ -1452,25 +1494,25 @@ function buildSlots(){
       const row=document.createElement('div');
       row.className='slot'; row.dataset.team=team; row.dataset.pos=p.pos;
       row.innerHTML=
-        '<div class="w-[92px] shrink-0 border-r border-line px-3 flex flex-col justify-center">'+
-          '<span class="font-mono text-[9px] tracking-[.18em] text-dim">POS 0'+p.pos+'</span>'+
-          '<span class="font-tech text-[11px] tracking-[.08em] text-muted uppercase mt-0.5">'+p.name+'</span>'+
+        '<div class="w-[104px] shrink-0 border-r border-line px-3 flex flex-col justify-center">'+
+          '<span class="font-mono text-[9px] tracking-[.14em] text-dim">ПОЗИЦИЯ '+p.pos+'</span>'+
+          '<span class="font-tech text-[10.5px] tracking-[.04em] text-muted mt-0.5 leading-tight">'+p.name+'</span>'+
         '</div>'+
         '<div class="flex-1 min-w-0 flex items-center gap-3 px-3">'+
           '<div class="slot-empty flex items-center gap-2 text-dim">'+
             '<i data-lucide="minus" class="text-[12px]"></i>'+
-            '<span class="font-mono text-[9.5px] tracking-[.18em] uppercase">Empty slot</span>'+
+            '<span class="font-mono text-[9.5px] tracking-[.14em] uppercase">Слот пуст</span>'+
           '</div>'+
           '<div class="slot-hero hidden items-center gap-3 w-full min-w-0">'+
             '<span class="slot-thumb"><img alt="" data-cdn="0" onerror="D2.imgFail(this)" /></span>'+
             '<span class="min-w-0 flex-1">'+
               '<span class="block font-tech font-semibold text-[13px] text-txt truncate s-name">—</span>'+
-              '<span class="block font-mono text-[9px] tracking-[.12em] uppercase text-dim truncate mt-0.5 s-roles">—</span>'+
+              '<span class="block font-mono text-[9px] tracking-[.1em] uppercase text-dim truncate mt-0.5 s-roles">—</span>'+
             '</span>'+
           '</div>'+
         '</div>'+
         '<div class="w-9 shrink-0 border-l border-line grid place-items-center">'+
-          '<button class="slot-clear" title="Clear pick"><i data-lucide="x" class="text-[12px]"></i></button>'+
+          '<button class="slot-clear" title="Убрать пик"><i data-lucide="x" class="text-[12px]"></i></button>'+
         '</div>';
       row.querySelector('.slot-clear').addEventListener('click',ev=>{ ev.stopPropagation(); clearSlot(team,p.pos); });
       row.addEventListener('click',()=>onSlotClick(team,p.pos));
@@ -1480,27 +1522,32 @@ function buildSlots(){
   icons();
 }
 function onSlotClick(team,pos){
-  if(state.mode!=='ranked'||!state.freeOrder) return;
+  if(state.mode!=='coach'||!state.freeOrder) return;
   if(state.draft[team][pos-1]) return;
   state.targetSlot={team:team,pos:pos};
   renderDraft();
-  toast('Target slot: '+(team==='radiant'?'Radiant':'Dire')+' · pos '+pos);
+  toast('Выбран слот: '+TEAM_RU[team]+' · позиция '+pos);
 }
 function buildOrderStrip(){
   const host=$('#order-strip'); host.innerHTML='';
-  DRAFT_ORDER.forEach((o,i)=>{
+  const list=orderList();
+  list.forEach((o,i)=>{
     const el=document.createElement('div');
     el.className='seq '+(o.team==='radiant'?'seq-rad':'seq-dire');
     el.dataset.idx=i;
-    el.title='Pick '+(i+1)+' · '+(o.team==='radiant'?'Radiant':'Dire')+' · Pos '+o.pos+' '+POSITIONS[o.pos-1].name;
-    el.innerHTML='<span class="lbl">'+(state.mode==='ranked'?(o.team==='radiant'?'1':'2'):(o.team===state.playerTeam?'Y':'B'))+'</span>';
+    let lbl;
+    if(state.mode==='ai') lbl=o.team===state.playerTeam?'В':'Б';
+    else lbl=o.team==='radiant'?'С':'Т';
+    el.title='Пик '+(i+1)+' · '+TEAM_RU[o.team]+' · позиция '+o.pos+' ('+POSITIONS[o.pos-1].name+')';
+    el.innerHTML='<span class="lbl">'+lbl+'</span>';
     host.appendChild(el);
   });
 }
 function renderDraft(){
   const slot=activeSlot();
   const count=pickCount();
-  const yourTurn = state.mode==='ranked' ? !!slot : (!!slot&&slot.team===state.playerTeam);
+  const list=orderList();
+  const yourTurn = state.mode==='ai' ? (!!slot&&slot.team===state.playerTeam) : !!slot;
   const aiTurn = state.mode==='ai'&&!!slot&&slot.team===state.aiTeam;
 
   ['radiant','dire'].forEach(team=>{
@@ -1511,9 +1558,9 @@ function renderDraft(){
       row.classList.toggle('slot-filled',!!hero);
       row.classList.toggle('slot-active',!!slot&&!hero&&slot.team===team&&slot.pos===pos&&!state.targetSlot);
       row.classList.toggle('slot-target',!!state.targetSlot&&state.targetSlot.team===team&&state.targetSlot.pos===pos&&!hero);
-      row.classList.toggle('slot-pickable',state.mode==='ranked'&&state.freeOrder&&!hero);
-      row.querySelector('.slot-clear').style.visibility=
-        (hero && !state.locked && (state.mode==='ranked' || team===state.playerTeam))?'visible':'hidden';
+      row.classList.toggle('slot-pickable',(state.mode==='coach'&&state.freeOrder&&!hero)||(state.mode==='sandbox'&&!hero));
+      const canClear = hero && !state.locked && (state.mode==='ai' ? team===state.playerTeam : true);
+      row.querySelector('.slot-clear').style.visibility=canClear?'visible':'hidden';
       if(hero){
         emptyBox.classList.add('hidden'); heroBox.classList.remove('hidden'); heroBox.classList.add('flex');
         const img=heroBox.querySelector('img');
@@ -1539,23 +1586,28 @@ function renderDraft(){
   const teamEl=$('#turn-team'), posEl=$('#turn-pos'), ownerEl=$('#turn-owner');
   if(slot){
     const isR=slot.team==='radiant';
-    teamEl.textContent=isR?'RADIANT':'DIRE';
+    teamEl.textContent=TEAM_RU[slot.team];
     teamEl.style.color=isR?'#8fc79b':'#dc9087';
-    posEl.textContent='POS 0'+slot.pos+' · '+POSITIONS[slot.pos-1].name.toUpperCase();
-    if(state.mode==='ranked'){
-      ownerEl.textContent=(state.freeOrder&&state.targetSlot)?'MANUAL INPUT · FREE PLACEMENT':'MANUAL INPUT · YOUR PICK';
+    posEl.textContent='ПОЗИЦИЯ '+slot.pos+' · '+POSITIONS[slot.pos-1].name.toUpperCase();
+    if(state.mode==='ai'){
+      if(slot.team===state.playerTeam){ ownerEl.textContent='ВАШ ПИК'; ownerEl.style.color='#e0c56a'; }
+      else { ownerEl.textContent=DIFFS[state.difficulty].label.toUpperCase()+' ПИКАЕТ'; ownerEl.style.color='#b0a6e6'; }
+    }else if(state.mode==='sandbox'){
+      ownerEl.textContent='РУЧНОЙ ВВОД · ПИК '+(count+1)+' ИЗ 10'; ownerEl.style.color='#e0c56a';
+    }else{
+      ownerEl.textContent=(state.freeOrder&&state.targetSlot)?'СВОБОДНОЕ РАЗМЕЩЕНИЕ':'ЖИВОЙ ТРЕНЕР · ВАШ ПИК';
       ownerEl.style.color='#e0c56a';
-    }else if(slot.team===state.playerTeam){ ownerEl.textContent='AWAITING YOUR SELECTION'; ownerEl.style.color='#e0c56a'; }
-    else { ownerEl.textContent=DIFFS[state.difficulty].label.toUpperCase()+' SELECTING'; ownerEl.style.color='#b0a6e6'; }
+    }
   }else{
-    teamEl.textContent='DRAFT COMPLETE'; teamEl.style.color='#e6e9ec';
-    posEl.textContent='ALL 10 HEROES LOCKED';
-    ownerEl.textContent='RUN THE MATCHUP ANALYSIS'; ownerEl.style.color='#5b6470';
+    teamEl.textContent='ДРАФТ ЗАВЕРШЁН'; teamEl.style.color='#e6e9ec';
+    posEl.textContent='ВСЕ 10 ГЕРОЕВ ЗАБЛОКИРОВАНЫ';
+    ownerEl.textContent='ЗАПУСТИТЕ АНАЛИЗ МАТЧ-АПА'; ownerEl.style.color='#5b6470';
   }
 
-  const nowIdx=slot?DRAFT_ORDER.findIndex(o=>o.team===slot.team&&o.pos===slot.pos):-1;
+  const nowIdx=slot?list.findIndex(o=>o.team===slot.team&&o.pos===slot.pos):-1;
   $$('#order-strip .seq').forEach((el,i)=>{
-    const o=DRAFT_ORDER[i], hero=state.draft[o.team][o.pos-1];
+    const o=list[i]; if(!o) return;
+    const hero=state.draft[o.team][o.pos-1];
     el.classList.toggle('seq-now',i===nowIdx);
     const old=el.querySelector('img');
     if(hero){
@@ -1576,15 +1628,15 @@ function renderDraft(){
 
   const full=count===10;
   $('#btn-analyze').disabled=!full;
-  $('#analyze-hint').textContent=full?'Report ready':('LOCK '+(10-count)+' MORE HERO'+(10-count===1?'':'ES')+' TO UNLOCK');
+  $('#analyze-hint').textContent=full?'Отчёт готов к запуску':('ЗАБЛОКИРУЙТЕ ЕЩЁ '+(10-count)+' '+plural(10-count,'ГЕРОЯ','ГЕРОЕВ','ГЕРОЕВ'));
 
   syncTakenStates();
-  paintCoachHighlights();
+  paintHighlights();
   renderCoach();
 }
 
 /* ============================================================================
-   AI COACH — live suggestion engine (recalculated after every pick)
+   ИИ-ТРЕНЕР: живые подсказки
    ========================================================================= */
 function has(h,r){ return !!h&&h.roles.indexOf(r)>=0; }
 function posFit(h,pos){
@@ -1618,60 +1670,59 @@ function tagCounts(team){
   team.filter(Boolean).forEach(h=>h.roles.forEach(r=>{ if(c[r]!==undefined) c[r]++; }));
   return c;
 }
-/* what the drafting team is still missing */
+const NEED_RU={
+  Disabler:'хард-контроль', Initiator:'инициатора', Support:'поддержку', Carry:'керри',
+  Durable:'танкующий фронт', Pusher:'пуш-давление', Escape:'мобильность', Nuker:'магический взрыв',
+  __magic:'магический урон', __phys:'физический урон'
+};
 function teamNeeds(team,pos){
   const filled=team.filter(Boolean);
   const c=tagCounts(filled);
   const magical=filled.filter(h=>h.attr==='int'||has(h,'Nuker')).length;
   const physical=filled.length-magical;
   const needs=[];
-  const push=(tag,weight,label,ideal)=>{
+  const push=(tag,weight,ideal)=>{
     const have=c[tag]||0;
     const w=weight*Math.max(0,1-have/Math.max(1,ideal));
-    if(w>0.06) needs.push({tag:tag,w:w,label:label,have:have});
+    if(w>0.06) needs.push({tag:tag,w:w,label:NEED_RU[tag]||tag,have:have});
   };
-  push('Disabler',1.30,'crowd control',2.2);
-  push('Initiator',0.95,'a fight initiator',1.4);
-  push('Support',pos>=4?1.25:0.70,'support utility',2.0);
-  push('Carry',pos<=2?1.25:0.40,'a hard carry',1.8);
-  push('Durable',0.95,'frontline durability',1.8);
-  push('Pusher',0.60,'tower pressure',1.4);
-  push('Escape',0.55,'mobility',1.4);
-  push('Nuker',0.55,'magic burst',1.6);
-  if(filled.length>=2 && physical-magical>=3) needs.push({tag:'__magic',w:0.85,label:'magical damage',have:magical});
-  if(filled.length>=2 && magical-physical>=3) needs.push({tag:'__phys',w:0.8,label:'physical damage',have:physical});
+  push('Disabler',1.30,2.2);
+  push('Initiator',0.95,1.4);
+  push('Support',pos>=4?1.25:0.70,2.0);
+  push('Carry',pos<=2?1.25:0.40,1.8);
+  push('Durable',0.95,1.8);
+  push('Pusher',0.60,1.4);
+  push('Escape',0.55,1.4);
+  push('Nuker',0.55,1.6);
+  if(filled.length>=2&&physical-magical>=3) needs.push({tag:'__magic',w:0.85,label:NEED_RU.__magic,have:magical});
+  if(filled.length>=2&&magical-physical>=3) needs.push({tag:'__phys',w:0.80,label:NEED_RU.__phys,have:physical});
   needs.sort((a,b)=>b.w-a.w);
   return needs;
 }
 function threatProfile(team){
   const filled=team.filter(Boolean);
   const vec=sumVectors(filled);
-  const slippery=filled.filter(h=>heroVector(h).mobility>=1.05);
-  const burst=filled.filter(h=>heroVector(h).magic>=1.2);
-  const phys=filled.filter(h=>heroVector(h).physical>=1.2);
-  return {vec:vec,slippery:slippery,burst:burst,phys:phys,filled:filled};
+  return {
+    vec:vec, filled:filled,
+    slippery:filled.filter(h=>heroVector(h).mobility>=1.05),
+    burst:filled.filter(h=>heroVector(h).magic>=1.2),
+    phys:filled.filter(h=>heroVector(h).physical>=1.2)
+  };
 }
 function namedCountersFor(candidate,enemyFilled){
   const key=candidate._imgKey; const hits=[];
-  enemyFilled.forEach(e=>{
-    const list=COUNTER_DB[e._imgKey];
-    if(list&&list.indexOf(key)>=0) hits.push(e);
-  });
+  enemyFilled.forEach(e=>{ const list=COUNTER_DB[e._imgKey]; if(list&&list.indexOf(key)>=0) hits.push(e); });
   return hits;
 }
-
-/* score one candidate for the side that is currently drafting */
-function scoreCandidate(h,slot,myTeam,threat,needs){
-  const v=heroVector(h);
-  const e=threat.vec;
+function scoreCandidate(h,slot,threat,needs){
+  const v=heroVector(h), e=threat.vec;
   let counter=0;
-  counter+=v.lockdown*Math.max(0,e.mobility-1.00)*1.00;   /* lockdown vs slippery   */
-  counter+=v.sustain *Math.max(0,e.magic-1.40)   *0.80;   /* durability vs magic    */
-  counter+=v.lockdown*Math.max(0,e.physical-2.00)*0.45;   /* control vs phys carry  */
-  counter+=v.magic   *Math.max(0,2.30-e.sustain) *0.50;   /* burst vs squishy       */
-  counter+=v.mobility*Math.max(0,e.lockdown-1.60)*0.45;   /* escape vs their CC     */
-  counter+=v.siege   *Math.max(0,1.30-e.lockdown)*0.30;   /* push vs no defend      */
-
+  counter+=v.lockdown*Math.max(0,e.mobility-1.00)*1.00;
+  counter+=v.sustain *Math.max(0,e.magic-1.40)   *0.80;
+  counter+=v.lockdown*Math.max(0,e.physical-2.00)*0.45;
+  counter+=v.magic   *Math.max(0,2.30-e.sustain) *0.50;
+  counter+=v.mobility*Math.max(0,e.lockdown-1.60)*0.45;
+  counter+=v.siege   *Math.max(0,1.30-e.lockdown)*0.30;
   const named=namedCountersFor(h,threat.filled);
   if(named.length) counter+=1.7+Math.min(named.length,3)*0.9;
 
@@ -1683,38 +1734,34 @@ function scoreCandidate(h,slot,myTeam,threat,needs){
   });
 
   const fit=posFit(h,slot.pos);
-  const meta=h.meta/100;
-  const total=fit*2.00 + counter*1.45 + synergy*1.80 + meta*0.90 + Math.random()*0.06;
+  const total=fit*2.00 + counter*1.45 + synergy*1.80 + (h.meta/100)*0.90 + Math.random()*0.06;
   return {h:h,score:total,counter:counter,synergy:synergy,fit:fit,named:named,vec:v,topNeed:topNeed};
 }
-
 function reasonFor(c,threat,slot){
   const h=c.h;
   if(c.named.length){
-    const names=c.named.slice(0,2).map(x=>x.name).join(' & ');
-    return {icon:'🎯', text:h.name+': hard counter to enemy '+names+' — locks the pick-off window shut.'};
+    const names=c.named.slice(0,2).map(x=>x.name).join(' и ');
+    return {icon:'🎯', text:h.name+': жёсткий контрпик против '+names+' — лишает их пространства для фарма.'};
   }
-  if(threat.slippery.length && c.vec.lockdown>=1.4 && c.counter>=1.6){
+  if(threat.slippery.length&&c.vec.lockdown>=1.4&&c.counter>=1.6){
     const nm=threat.slippery.slice(0,2).map(x=>x.name).join(', ');
-    return {icon:'🎯', text:h.name+': reliable lockdown ('+n1(c.vec.lockdown)+') to catch '+nm+'.'};
+    return {icon:'🎯', text:h.name+': надёжный контроль ('+n1(c.vec.lockdown)+'), чтобы ловить '+nm+'.'};
   }
-  if(threat.burst.length && c.vec.sustain>=1.2 && c.counter>=1.2){
-    return {icon:'🛡️', text:h.name+': durability '+n1(c.vec.sustain)+' absorbs their magic burst.'};
+  if(threat.burst.length&&c.vec.sustain>=1.2&&c.counter>=1.2){
+    return {icon:'🛡️', text:h.name+': живучесть '+n1(c.vec.sustain)+' гасит их магический взрыв.'};
   }
-  if(threat.phys.length && c.vec.lockdown>=1.2){
-    return {icon:'🛡️', text:h.name+': shuts down their physical carry with '+n1(c.vec.lockdown)+' lockdown.'};
+  if(threat.phys.length&&c.vec.lockdown>=1.2){
+    return {icon:'🛡️', text:h.name+': останавливает их физический керри контролем ('+n1(c.vec.lockdown)+').'};
   }
   if(c.topNeed){
-    const label=c.topNeed.label;
-    return {icon:'🧩', text:h.name+': fills your missing '+label+' at position '+slot.pos+'.'};
+    return {icon:'🧩', text:h.name+': закрывает нехватку — '+c.topNeed.label+' на позиции '+slot.pos+'.'};
   }
   if(c.fit>=1.2){
-    const role=(POS_ROLES[slot.pos]||[]).find(r=>has(h,r))||'role fit';
-    return {icon:'⚔️', text:h.name+': natural Pos '+slot.pos+' '+role.toLowerCase()+' for this slot.'};
+    const role=(POS_ROLES[slot.pos]||[]).find(r=>has(h,r))||'роль';
+    return {icon:'⚔️', text:h.name+': природный '+role.toLowerCase()+' под позицию '+slot.pos+'.'};
   }
-  return {icon:'📈', text:h.name+': best remaining meta index ('+h.meta+') that still fits the lineup.'};
+  return {icon:'📈', text:h.name+': лучший доступный мета-индекс ('+h.meta+'), который всё ещё вписывается в состав.'};
 }
-
 function computeSuggestions(){
   const slot=activeSlot();
   if(!slot||!state.heroes.length) return [];
@@ -1723,29 +1770,33 @@ function computeSuggestions(){
   const threat=threatProfile(enemyTeam);
   const needs=teamNeeds(myTeam,slot.pos);
   const pool=state.heroes.filter(h=>!teamOf(h.id));
-  const scored=pool.map(h=>scoreCandidate(h,slot,myTeam,threat,needs));
+  const scored=pool.map(h=>scoreCandidate(h,slot,threat,needs));
   scored.sort((a,b)=>b.score-a.score);
   return scored.slice(0,3).map(c=>({hero:c.h,score:c.score,reason:reasonFor(c,threat,slot),slot:slot}));
 }
-
 function renderCoach(){
-  const host=$('#coach-list'); if(!host) return;
+  const panel=$('#coach-panel'), host=$('#coach-list');
+  if(!panel||!host) return;
+  /* в песочнице тренер полностью скрыт */
+  if(state.mode==='sandbox'||!state.started){
+    panel.classList.add('hidden');
+    host.innerHTML='';
+    $('#coach-for').textContent='—';
+    return;
+  }
+  panel.classList.remove('hidden');
   const slot=activeSlot();
+  if(!slot){
+    $('#coach-for').textContent='ДРАФТ ЗАВЕРШЁН';
+    host.innerHTML='<p class="font-mono text-[10px] tracking-[.12em] uppercase text-dim py-4 text-center">Все 10 героев заблокированы · откройте отчёт</p>';
+    state.coachCache=[]; icons(); return;
+  }
   const list=computeSuggestions();
   state.coachCache=list;
-
-  if(!slot){
-    $('#coach-for').textContent='DRAFT COMPLETE';
-    host.innerHTML='<p class="font-mono text-[10px] tracking-[.14em] uppercase text-dim py-4 text-center">All ten heroes locked · open the report</p>';
-    icons(); return;
-  }
-  const sideName = state.mode==='ranked'
-    ? 'TEAM '+(slot.team==='radiant'?'1':'2')+' · '+(slot.team==='radiant'?'RADIANT':'DIRE')
-    : (slot.team===state.playerTeam?'YOUR PICK':'BOT PICK');
-  $('#coach-for').textContent=sideName+' · POS '+slot.pos+' '+POSITIONS[slot.pos-1].name.toUpperCase();
+  $('#coach-for').textContent=TEAM_RU[slot.team]+' · ПОЗ '+slot.pos+' '+POSITIONS[slot.pos-1].name.toUpperCase();
 
   if(!list.length){
-    host.innerHTML='<p class="font-mono text-[10px] tracking-[.14em] uppercase text-dim py-4 text-center">Pool exhausted</p>';
+    host.innerHTML='<p class="font-mono text-[10px] tracking-[.12em] uppercase text-dim py-4 text-center">Пул героев исчерпан</p>';
     icons(); return;
   }
   const max=list[0].score||1;
@@ -1753,9 +1804,8 @@ function renderCoach(){
   list.forEach((s,i)=>{
     const a=ATTR[s.hero.attr]||ATTR.all;
     const el=document.createElement('button');
-    el.type='button'; el.className='sugg';
-    el.dataset.id=String(s.hero.id);
-    el.setAttribute('aria-label','Draft '+s.hero.name);
+    el.type='button'; el.className='sugg'; el.dataset.id=String(s.hero.id);
+    el.setAttribute('aria-label','Запикать '+s.hero.name);
     el.innerHTML=
       '<span class="sugg-rank">'+(i+1)+'</span>'+
       '<span class="sugg-img"><img alt="'+esc(s.hero.name)+'" loading="lazy" decoding="async" data-hid="'+esc(s.hero.id)+'" data-cdn="0" src="'+esc(heroUrl(s.hero,0))+'" onerror="D2.imgFail(this)" /></span>'+
@@ -1768,10 +1818,10 @@ function renderCoach(){
         '<span class="sugg-bar"><i data-w="'+clamp(Math.round(s.score/max*100),6,100)+'"></i></span>'+
       '</span>';
     el.addEventListener('click',()=>{
-      if(state.locked){ toast('Bot is selecting'); return; }
+      if(state.locked){ toast('Бот выбирает героя'); return; }
       const cur=activeSlot();
-      if(!cur){ toast('Draft complete'); return; }
-      if(state.mode==='ai'&&cur.team!==state.playerTeam){ toast('This is the bot selection'); return; }
+      if(!cur){ toast('Драфт завершён'); return; }
+      if(state.mode==='ai'&&cur.team!==state.playerTeam){ toast('Сейчас пик бота'); return; }
       commitPick(s.hero,false);
     });
     host.appendChild(el);
@@ -1780,19 +1830,17 @@ function renderCoach(){
   requestAnimationFrame(()=>{ $$('#coach-list .sugg-bar i').forEach(b=>{ b.style.width=b.dataset.w+'%'; }); });
   if(state.sort==='coach') sortGrid();
 }
-function paintCoachHighlights(){
+function paintHighlights(){
   $$('.tile.coach').forEach(c=>c.classList.remove('coach'));
-  if(!state.coach) return;
+  if(!state.highlight||state.mode==='sandbox') return;
   const ids=state.coachCache.map(s=>String(s.hero.id));
   state.heroes.forEach(h=>{
-    if(ids.indexOf(String(h.id))>=0){
-      const c=state.cardById.get(String(h.id)); if(c) c.classList.add('coach');
-    }
+    if(ids.indexOf(String(h.id))>=0){ const c=state.cardById.get(String(h.id)); if(c) c.classList.add('coach'); }
   });
 }
 
 /* ============================================================================
-   BOT AI (solo mode)
+   БОТ (одиночная игра)
    ========================================================================= */
 const TARGETS={lockdown:3.4,mobility:2.2,magic:2.6,physical:3.0,sustain:3.0,siege:1.8,utility:1.8};
 function balanceScore(team,candidate){
@@ -1811,8 +1859,7 @@ function counterScore(cand,enemyTeam){
   s+=v.physical*Math.max(0,1.5-e.lockdown)*0.55;
   s+=v.siege*(0.3+Math.max(0,1.4-e.lockdown)*0.2);
   s+=v.mobility*Math.max(0,e.lockdown-1.8)*0.5;
-  const named=namedCountersFor(cand,enemyTeam.filter(Boolean));
-  s+=named.length*1.4;
+  s+=namedCountersFor(cand,enemyTeam.filter(Boolean)).length*1.4;
   return s;
 }
 function counterVsHero(c,e){
@@ -1847,9 +1894,9 @@ function aiChoose(){
   return aiHard(pool,slot.pos);
 }
 const THINK_LINES={
-  easy:['browsing pool','random role-fit','committing'],
-  medium:['reading meta index','sorting by fit','balancing lineup'],
-  hard:['profiling your draft','computing threat vector','searching counter-pick','balancing composition']
+  easy:['просматривает пул','случайный выбор по роли','фиксирует пик'],
+  medium:['читает мета-индекс','сортирует по позиции','балансирует состав'],
+  hard:['строит профиль вашего драфта','считает вектор угрозы','ищет контрпик','балансирует состав']
 };
 function scheduleAiTurn(){
   const slot=activeSlot(); if(!slot||slot.team!==state.aiTeam) return;
@@ -1870,7 +1917,7 @@ function scheduleAiTurn(){
 function cancelAi(){ state.aiToken++; if(state.aiTimer){ clearTimeout(state.aiTimer); state.aiTimer=null; } state.locked=false; }
 
 /* ============================================================================
-   DRAFT FLOW
+   ХОД ДРАФТА
    ========================================================================= */
 function commitPick(hero,byBot){
   const slot=activeSlot();
@@ -1879,10 +1926,8 @@ function commitPick(hero,byBot){
   state.history.push({team:slot.team,pos:slot.pos,hero:hero,byBot:!!byBot});
   if(state.targetSlot&&state.targetSlot.team===slot.team&&state.targetSlot.pos===slot.pos) state.targetSlot=null;
   renderDraft();
-  const who = state.mode==='ranked'
-    ? 'TEAM '+(slot.team==='radiant'?'1':'2')
-    : (byBot?'BOT':'YOU');
-  toast(who+' · POS '+slot.pos+' · '+esc(hero.name));
+  const who = state.mode==='ai' ? (byBot?'БОТ':'ВЫ') : TEAM_RU[slot.team];
+  toast(who+' · ПОЗИЦИЯ '+slot.pos+' · '+esc(hero.name));
   advance();
 }
 function advance(){
@@ -1892,36 +1937,35 @@ function advance(){
   if(state.mode==='ai'&&slot.team===state.aiTeam) scheduleAiTurn();
 }
 function onDraftComplete(){
-  cancelAi(); renderDraft();
-  yGameplayStop();
+  cancelAi(); renderDraft(); yGameplayStop();
   setTimeout(()=>{ if(pickCount()===10) openAnalysis(); },700);
 }
 function clearSlot(team,pos){
   if(state.locked) return;
   const idx=pos-1, hero=state.draft[team][idx];
   if(!hero) return;
-  if(state.mode==='ai'&&team!==state.playerTeam){ toast('Cannot remove bot selection'); return; }
+  if(state.mode==='ai'&&team!==state.playerTeam){ toast('Нельзя убрать пик бота'); return; }
   cancelAi();
   state.draft[team][idx]=null;
   state.history=state.history.filter(e=>!(e.team===team&&e.pos===pos&&e.hero.id===hero.id));
   if(state.targetSlot&&state.targetSlot.team===team&&state.targetSlot.pos===pos) state.targetSlot=null;
-  renderDraft(); toast(hero.name+' returned to pool');
+  renderDraft(); toast(hero.name+' возвращён в пул');
 }
 function undo(){
   if(state.locked) return;
-  if(!state.history.length){ toast('Nothing to undo'); return; }
+  if(!state.history.length){ toast('Нечего отменять'); return; }
   cancelAi();
   let guard=0;
   do{
     const last=state.history.pop();
     if(!last) break;
     state.draft[last.team][last.pos-1]=null;
-    if(state.mode==='ranked') break;
+    if(state.mode!=='ai') break;
     const s=activeSlot(); guard++;
     if(!s||s.team===state.playerTeam) break;
   }while(guard<4);
   state.targetSlot=null;
-  renderDraft(); toast('Pick reverted');
+  renderDraft(); toast('Пик отменён');
 }
 function resetDraft(){
   cancelAi();
@@ -1941,7 +1985,7 @@ function autoPickForPlayer(){
 }
 
 /* ============================================================================
-   ANALYSER v2 — zero-sum profiles, mean team values, logistic probability
+   АНАЛИЗАТОР v2 — нулевая сумма профилей, среднее по героям, логистика
    ========================================================================= */
 const DIMS=['teamfight','lane','push','scaling','durability','escape'];
 const EVEN_SHARE=1/DIMS.length, SPREAD=300, MAX_SCORE=96, MIN_SCORE=2;
@@ -1963,12 +2007,12 @@ const ATTR_MOD={
   all:{teamfight:+0.03,lane:+0.02,push:+0.02,scaling:+0.03,durability:+0.04,escape:+0.02}
 };
 const METRIC_META=[
-  {key:'teamfight',label:'Teamfight',icon:'users',w:0.24},
-  {key:'lane',label:'Early Game / Lane',icon:'sunrise',w:0.18},
-  {key:'scaling',label:'Late Game Scaling',icon:'trending-up',w:0.18},
-  {key:'escape',label:'Escape / Mobility',icon:'footprints',w:0.18},
-  {key:'durability',label:'Durability',icon:'shield',w:0.12},
-  {key:'push',label:'Push Power',icon:'castle',w:0.10}
+  {key:'teamfight',label:'Командный бой',icon:'users',w:0.24},
+  {key:'lane',label:'Ранняя игра / линии',icon:'sunrise',w:0.18},
+  {key:'scaling',label:'Потенциал в поздней игре',icon:'trending-up',w:0.18},
+  {key:'escape',label:'Мобильность / побег',icon:'footprints',w:0.18},
+  {key:'durability',label:'Живучесть',icon:'shield',w:0.12},
+  {key:'push',label:'Пуш-потенциал',icon:'castle',w:0.10}
 ];
 function heroProfile(h){
   const raw={teamfight:0,lane:0,push:0,scaling:0,durability:0,escape:0};
@@ -1998,7 +2042,7 @@ function teamReport(team){
   let composite=0; METRIC_META.forEach(m=>{ composite+=pct[m.key]*m.w; });
   composite=Math.round(composite);
   const curveGap=pct.scaling-pct.lane;
-  const curve=curveGap>=16?'Late-game curve':curveGap<=-16?'Early tempo curve':'Even timing curve';
+  const curve=curveGap>=16?'Поздняя игра':curveGap<=-16?'Ранний темп':'Ровный тайминг';
 
   const f={count:picked.length,melee:0,ranged:0,str:0,agi:0,int:0,uni:0,
     disablers:0,initiators:0,pushers:0,durable:0,escape:0,carry:0,nuker:0,support:0,jungle:0,magical:0,physical:0};
@@ -2022,7 +2066,7 @@ function teamReport(team){
   heroes.forEach((h,i)=>{ if(!h) return; fitN++; fitSum+=clamp(posFit(h,i+1)/1.8,0,1)*100; });
   const posFitPct=fitN?Math.round(fitSum/fitN):0;
 
-  return {team:team,label:team==='radiant'?'Radiant':'Dire',heroes:heroes,picked:picked,pct:pct,share:avgShare,
+  return {team:team,label:TEAM_RU[team],heroes:heroes,picked:picked,pct:pct,share:avgShare,
     composite:composite,quality:quality,metaAvg:metaAvg,coverage:coverage,curve:curve,flags:f,vec:vec,
     damageBalance:damageBalance,posFit:posFitPct,counter:0,notes:[]};
 }
@@ -2044,56 +2088,56 @@ function winProbability(delta,difficulty,mode){
 function buildNotes(rep){
   const notes=[]; const N=(t,i,x)=>notes.push({tone:t,icon:i,text:x});
   const f=rep.flags,p=rep.pct;
-  if(f.count<5) N('warn','alert-triangle','Lineup incomplete ('+f.count+'/5) — this read is partial.');
-  if(f.disablers===0) N('bad','x','Zero hard disables: enemy carries walk out of every fight.');
-  else if(f.disablers>=4) N('good','check',f.disablers+' hard disables — long, chainable lockdown.');
-  else if(f.disablers>=2) N('good','check',f.disablers+' hard disables — workable, but must be spent well.');
-  else N('warn','alert-triangle','Only '+f.disablers+' hard disable — one missed stun loses the fight.');
-  if(f.initiators===0) N('bad','x','No initiator: this draft only reacts, it never opens.');
-  else N('good','check',f.initiators+' initiator'+(f.initiators===1?'':'s')+' available to start fights on its terms.');
-  if(p.durability<=38) N('bad','x','Durability '+p.durability+'% — no real front line to fight behind.');
-  else if(p.durability>=62) N('good','check','Durability '+p.durability+'% — a genuine front line ('+f.durable+' durable heroes).');
-  if(p.teamfight>=64) N('good','check','Teamfight '+p.teamfight+'% — wants 5v5 and wins it.');
-  else if(p.teamfight<=38) N('warn','alert-triangle','Teamfight '+p.teamfight+'% — avoid 5v5, split the map.');
-  if(p.push<=36) N('warn','alert-triangle','Push '+p.push+'% — closing towers after a won fight will be slow.');
-  else if(p.push>=62) N('good','check','Push '+p.push+'% ('+f.pushers+' pushers) — converts kills into objectives.');
-  if(p.escape<=36) N('bad','x','Mobility '+p.escape+'% — one clean initiation deletes the team.');
-  else if(p.escape>=64) N('good','check','Mobility '+p.escape+'% ('+f.escape+' escape tools) — hard to pin down.');
-  if(f.carry===0) N('bad','x','No carry tag — nothing scales to hit the Ancient.');
-  else if(f.carry>=4) N('warn','alert-triangle',f.carry+' carry-tagged heroes fighting for the same farm.');
-  if(f.melee===5) N('bad','x','All-melee: heavy AoE exposure while closing the gap.');
-  if(f.ranged>=4) N('warn','alert-triangle',f.ranged+' ranged heroes — strong poke, fragile into initiation.');
-  if(rep.damageBalance<=44) N('warn','alert-triangle','One-dimensional damage ('+f.physical+' physical / '+f.magical+' magical).');
-  else N('good','check','Damage split '+f.physical+' physical / '+f.magical+' magical — expensive to itemise against.');
-  if(rep.posFit>=74) N('good','check','Position discipline '+rep.posFit+'% — heroes are in the lanes they want.');
-  else if(rep.posFit<50) N('warn','alert-triangle','Position fit only '+rep.posFit+'% — at least one hero is out of role.');
-  if(rep.curve==='Late-game curve') N('good','check',rep.curve+': scaling '+p.scaling+'% vs early '+p.lane+'% — protect the carry to 25+ minutes.');
-  if(rep.curve==='Early tempo curve') N('good','check',rep.curve+': early '+p.lane+'% vs scaling '+p.scaling+'% — must snowball.');
+  if(f.count<5) N('warn','alert-triangle','Состав неполный ('+f.count+'/5) — оценка частичная.');
+  if(f.disablers===0) N('bad','x','Ноль хард-контроля: вражеские керри просто уходят из любого замеса.');
+  else if(f.disablers>=4) N('good','check',f.disablers+' источника хард-контроля — длинные, связуемые станы.');
+  else if(f.disablers>=2) N('good','check',f.disablers+' хард-дизейбла — рабочий контроль, но тратить его нужно точно.');
+  else N('warn','alert-triangle','Всего '+f.disablers+' хард-дизейбл — один промахнутый стан решает драку.');
+  if(f.initiators===0) N('bad','x','Нет инициатора: этот драфт только отвечает, но никогда не начинает.');
+  else N('good','check','Инициаторов: '+f.initiators+' — можно начинать драки на своих условиях.');
+  if(p.durability<=38) N('bad','x','Живучесть '+p.durability+'% — настоящего фронта нет, заднюю линию быстро вскрывают.');
+  else if(p.durability>=62) N('good','check','Живучесть '+p.durability+'% — полноценный фронт ('+f.durable+' durable-героев).');
+  if(p.teamfight>=64) N('good','check','Командный бой '+p.teamfight+'% — состав хочет 5х5 и выигрывает его.');
+  else if(p.teamfight<=38) N('warn','alert-triangle','Командный бой '+p.teamfight+'% — избегайте 5х5, играйте через сплит.');
+  if(p.push<=36) N('warn','alert-triangle','Пуш '+p.push+'% — после выигранной драки Towers падают очень медленно.');
+  else if(p.push>=62) N('good','check','Пуш '+p.push+'% ('+f.pushers+' pusher) — kills конвертируются в объекты.');
+  if(p.escape<=36) N('bad','x','Мобильность '+p.escape+'% — одна удачная инициация стирает команду.');
+  else if(p.escape>=64) N('good','check','Мобильность '+p.escape+'% ('+f.escape+' escape-инструментов) — состав крайне трудно поймать.');
+  if(f.carry===0) N('bad','x','Ни одного Carry-тега — некому масштабироваться в Ancient.');
+  else if(f.carry>=4) N('warn','alert-triangle',' Carry-тегов: '+f.carry+' — все борются за один фарм.');
+  if(f.melee===5) N('bad','x','Полностью милишный состав: огромный риск под AoE при сближении.');
+  if(f.ranged>=4) N('warn','alert-triangle','Ренджей: '+f.ranged+' — сильный poke, но хрупко против чистой инициации.');
+  if(rep.damageBalance<=44) N('warn','alert-triangle','Однобокий урон ('+f.physical+' физ. / '+f.magical+' маг.) — один предмет закрывает весь состав.');
+  else N('good','check','Урон сбалансирован: '+f.physical+' физ. / '+f.magical+' маг. — дорого контрить предметами.');
+  if(rep.posFit>=74) N('good','check','Дисциплина позиций '+rep.posFit+'% — герои стоят на своих линиях.');
+  else if(rep.posFit<50) N('warn','alert-triangle','Соответствие позициям всего '+rep.posFit+'% — минимум один герой вне роли.');
+  if(rep.curve==='Поздняя игра') N('good','check','Кривая тайминга: поздняя игра (scaling '+p.scaling+'% против early '+p.lane+'%) — защищайте керри до 25+ минут.');
+  if(rep.curve==='Ранний темп') N('good','check','Кривая тайминга: ранний темп (early '+p.lane+'% против scaling '+p.scaling+'%) — нужно snowball-ить.');
   const vals=DIMS.map(k=>p[k]);
-  if(Math.max.apply(null,vals)-Math.min.apply(null,vals)<16) N('warn','alert-triangle','Flat profile — no clear win condition.');
+  if(Math.max.apply(null,vals)-Math.min.apply(null,vals)<16) N('warn','alert-triangle','Плоский профиль — нет явного условия победы, всё решает исполнение.');
   return notes;
 }
 function buildH2H(you,bot){
   const rows=[
-    {id:'composite',k:'Composite draft score',a:you.composite,b:bot.composite},
-    {id:'teamfight',k:'Teamfight',a:you.pct.teamfight+'%',b:bot.pct.teamfight+'%',na:you.pct.teamfight,nb:bot.pct.teamfight},
-    {id:'lane',k:'Early game / lane',a:you.pct.lane+'%',b:bot.pct.lane+'%',na:you.pct.lane,nb:bot.pct.lane},
-    {id:'scaling',k:'Late game scaling',a:you.pct.scaling+'%',b:bot.pct.scaling+'%',na:you.pct.scaling,nb:bot.pct.scaling},
-    {id:'escape',k:'Escape / mobility',a:you.pct.escape+'%',b:bot.pct.escape+'%',na:you.pct.escape,nb:bot.pct.escape},
-    {id:'dura',k:'Durability',a:you.pct.durability+'%',b:bot.pct.durability+'%',na:you.pct.durability,nb:bot.pct.durability},
-    {id:'push',k:'Push power',a:you.pct.push+'%',b:bot.pct.push+'%',na:you.pct.push,nb:bot.pct.push},
-    {id:'dis',k:'Hard disables (count)',a:you.flags.disablers,b:bot.flags.disablers},
-    {id:'lock',k:'Lockdown index',a:n1(you.vec.lockdown),b:n1(bot.vec.lockdown),na:you.vec.lockdown,nb:bot.vec.lockdown},
-    {id:'mob',k:'Mobility index',a:n1(you.vec.mobility),b:n1(bot.vec.mobility),na:you.vec.mobility,nb:bot.vec.mobility},
-    {id:'front',k:'Durable frontline',a:you.flags.durable,b:bot.flags.durable},
-    {id:'init',k:'Initiators',a:you.flags.initiators,b:bot.flags.initiators},
-    {id:'pushc',k:'Pushers',a:you.flags.pushers,b:bot.flags.pushers},
-    {id:'carryc',k:'True carries',a:you.flags.carry,b:bot.flags.carry},
-    {id:'counter',k:'Counter index',a:n1(you.counter),b:n1(bot.counter),na:you.counter,nb:bot.counter},
-    {id:'fit',k:'Position fit',a:you.posFit+'%',b:bot.posFit+'%',na:you.posFit,nb:bot.posFit},
-    {id:'meta',k:'Meta index (avg)',a:you.metaAvg,b:bot.metaAvg},
-    {id:'dmg',k:'Damage balance',a:you.damageBalance+'%',b:bot.damageBalance+'%',na:you.damageBalance,nb:bot.damageBalance},
-    {id:'split',k:'Physical / magical',a:you.flags.physical+' / '+you.flags.magical,b:bot.flags.physical+' / '+bot.flags.magical,text:true}
+    {id:'composite',k:'Итоговый рейтинг драфта',a:you.composite,b:bot.composite},
+    {id:'teamfight',k:'Командный бой',a:you.pct.teamfight+'%',b:bot.pct.teamfight+'%',na:you.pct.teamfight,nb:bot.pct.teamfight},
+    {id:'lane',k:'Ранняя игра / линии',a:you.pct.lane+'%',b:bot.pct.lane+'%',na:you.pct.lane,nb:bot.pct.lane},
+    {id:'scaling',k:'Потенциал в поздней игре',a:you.pct.scaling+'%',b:bot.pct.scaling+'%',na:you.pct.scaling,nb:bot.pct.scaling},
+    {id:'escape',k:'Мобильность / побег',a:you.pct.escape+'%',b:bot.pct.escape+'%',na:you.pct.escape,nb:bot.pct.escape},
+    {id:'dura',k:'Живучесть',a:you.pct.durability+'%',b:bot.pct.durability+'%',na:you.pct.durability,nb:bot.pct.durability},
+    {id:'push',k:'Пуш-потенциал',a:you.pct.push+'%',b:bot.pct.push+'%',na:you.pct.push,nb:bot.pct.push},
+    {id:'dis',k:'Хард-контроль (кол-во)',a:you.flags.disablers,b:bot.flags.disablers},
+    {id:'lock',k:'Индекс локаута',a:n1(you.vec.lockdown),b:n1(bot.vec.lockdown),na:you.vec.lockdown,nb:bot.vec.lockdown},
+    {id:'mob',k:'Индекс мобильности',a:n1(you.vec.mobility),b:n1(bot.vec.mobility),na:you.vec.mobility,nb:bot.vec.mobility},
+    {id:'front',k:'Танкующий фронт',a:you.flags.durable,b:bot.flags.durable},
+    {id:'init',k:'Инициаторы',a:you.flags.initiators,b:bot.flags.initiators},
+    {id:'pushc',k:'Пушеры',a:you.flags.pushers,b:bot.flags.pushers},
+    {id:'carryc',k:'Тру-керри',a:you.flags.carry,b:bot.flags.carry},
+    {id:'counter',k:'Индекс контрпика',a:n1(you.counter),b:n1(bot.counter),na:you.counter,nb:bot.counter},
+    {id:'fit',k:'Соответствие позициям',a:you.posFit+'%',b:bot.posFit+'%',na:you.posFit,nb:bot.posFit},
+    {id:'meta',k:'Мета-индекс (сред.)',a:you.metaAvg,b:bot.metaAvg},
+    {id:'dmg',k:'Баланс урона',a:you.damageBalance+'%',b:bot.damageBalance+'%',na:you.damageBalance,nb:bot.damageBalance},
+    {id:'split',k:'Физический / магический',a:you.flags.physical+' / '+you.flags.magical,b:bot.flags.physical+' / '+bot.flags.magical,text:true}
   ];
   const map={};
   rows.forEach(r=>{
@@ -2117,77 +2161,85 @@ function gradeFor(you,bot,T){
   });
   pts+=clamp((rowsWon-rowsLost)*1.1,-4,4);
   let letter,color,title;
-  if(pts>=11){ letter='S'; color='#e0c56a'; title='MASTER DRAFTER'; }
-  else if(pts>=6){ letter='A'; color='#8fc79b'; title='STRONG DRAFT'; }
-  else if(pts>=1){ letter='B'; color='#9fc0e8'; title='SOLID DRAFT'; }
-  else if(pts>=-5){ letter='C'; color='#e0c56a'; title='WORKABLE DRAFT'; }
-  else { letter='D'; color='#dc9087'; title='INTO A HEADWIND'; }
+  if(pts>=11){ letter='S'; color='#e0c56a'; title='МАСТЕР ДРАФТА'; }
+  else if(pts>=6){ letter='A'; color='#8fc79b'; title='СИЛЬНЫЙ ДРАФТ'; }
+  else if(pts>=1){ letter='B'; color='#9fc0e8'; title='КРЕПКИЙ ДРАФТ'; }
+  else if(pts>=-5){ letter='C'; color='#e0c56a'; title='РАБОЧИЙ ДРАФТ'; }
+  else { letter='D'; color='#dc9087'; title='ДРАФТ ПОД ДАВЛЕНИЕМ'; }
   return {pts:Math.round(pts*10)/10,letter:letter,color:color,title:title,rowsWon:rowsWon,rowsLost:rowsLost};
 }
-function buildProse(you,bot,T,grade,probYou,sideNames){
-  const M=T.map,S=[];
+function capFirst(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+function buildProse(you,bot,T,grade,probYou,S){
+  const M=T.map, out=[];
   const d=you.composite-bot.composite;
-  const botLabel=sideNames.botPhrase;
-  if(d>=6) S.push('You won this draft on paper — composite '+you.composite+' to '+bot.composite+'.');
-  else if(d>=2) S.push('A slim advantage to you: '+you.composite+' versus '+bot.composite+' composite.');
-  else if(d>-2) S.push('Dead even on the numbers ('+you.composite+' vs '+bot.composite+') — decided in-game, not in the draft.');
-  else if(d>-6) S.push('A slim advantage to '+botLabel+': '+bot.composite+' versus '+you.composite+' composite.');
-  else S.push(botLabel.charAt(0).toUpperCase()+botLabel.slice(1)+' hold the stronger draft, '+bot.composite+' to '+you.composite+'.');
+  const opp='сторона «'+S.botName+'»';
+  if(d>=6) out.push('Вы выиграли этот драфт на бумаге — итоговый рейтинг '+you.composite+' против '+bot.composite+'.');
+  else if(d>=2) out.push('Небольшое преимущество у вас: '+you.composite+' против '+bot.composite+'.');
+  else if(d>-2) out.push('Полный паритет по цифрам ('+you.composite+' против '+bot.composite+') — исход решится в самой игре, а не в драфте.');
+  else if(d>-6) out.push('Небольшое преимущество у '+opp+': '+bot.composite+' против '+you.composite+'.');
+  else out.push(capFirst(opp)+' держит более сильный драфт: '+bot.composite+' против '+you.composite+'.');
 
   const gaps=['teamfight','lane','scaling','escape','dura','push'].map(id=>M[id]).sort((a,b)=>Math.abs(b.diff)-Math.abs(a.diff));
   const big=gaps[0];
-  if(Math.abs(big.diff)>=6){
-    S.push('The clearest gap is '+big.k.toLowerCase()+' — '+big.a+' for you against '+big.b+' for '+botLabel+'.');
-  }else{
-    S.push('No single axis is decisive; the largest gap is '+big.k.toLowerCase()+' ('+big.a+' vs '+big.b+').');
-  }
-  const dis=M.dis,lock=M.lock;
-  if(dis.na===dis.nb) S.push('Crowd control is level at '+dis.na+' hard disable'+(dis.na===1?'':'s')+' each (lockdown index '+lock.a+' vs '+lock.b+').');
-  else if(dis.nb>dis.na){ const g=dis.nb-dis.na;
-    S.push('The draft is close, but '+botLabel+' has a slight edge in crowd control (+'+g+' stun'+(g===1?'':'s')+': '+dis.b+' disables to your '+dis.a+', lockdown index '+lock.b+' vs '+lock.a+').'); }
-  else { const g=dis.na-dis.nb;
-    S.push('You hold the crowd-control edge (+'+g+' stun'+(g===1?'':'s')+': '+dis.a+' disables to their '+dis.b+', lockdown index '+lock.a+' vs '+lock.b+').'); }
+  if(Math.abs(big.diff)>=6) out.push('Самый заметный разрыв — '+big.k.toLowerCase()+': '+big.a+' у вас против '+big.b+' у '+opp+'.');
+  else out.push('Решающей оси нет; наибольший разрыв — '+big.k.toLowerCase()+' ('+big.a+' против '+big.b+').');
 
-  const mob=M.mob.na,theirLock=M.lock.nb;
-  if(mob-theirLock>=0.8) S.push('Your mobility index ('+M.mob.a+') outpaces their lockdown ('+lock.b+') — a legitimate counter-draft against their engages.');
-  else if(theirLock-mob>=0.8) S.push('Their lockdown index ('+lock.b+') beats your mobility ('+M.mob.a+'), so slippery heroes will need saves or BKB timings.');
+  const dis=M.dis, lock=M.lock;
+  if(dis.na===dis.nb) out.push('По контролю паритет — '+dis.na+' '+plural(dis.na,'хард-дизейбл','хард-дизейбла','хард-дизейблов')+' у каждой стороны (индекс локаута '+lock.a+' к '+lock.b+').');
+  else if(dis.nb>dis.na){
+    const g=dis.nb-dis.na;
+    out.push('Драфт близок, но у соперника небольшое преимущество по контролю (+'+g+' '+plural(g,'стан','стана','станов')+': '+dis.b+' '+plural(dis.b,'дизейбл','дизейбла','дизейблов')+' против ваших '+dis.a+', индекс локаута '+lock.b+' к '+lock.a+').');
+  }else{
+    const g=dis.na-dis.nb;
+    out.push('Преимущество по контролю у вас (+'+g+' '+plural(g,'стан','стана','станов')+': '+dis.a+' '+plural(dis.a,'дизейбл','дизейбла','дизейблов')+' против '+dis.b+', индекс локаута '+lock.a+' к '+lock.b+').');
+  }
+
+  const mob=M.mob.na, theirLock=M.lock.nb;
+  if(mob-theirLock>=0.8) out.push('Ваш индекс мобильности ('+M.mob.a+') выше их локаута ('+lock.b+') — это честный контр-драфт против их инициации.');
+  else if(theirLock-mob>=0.8) out.push('Их индекс локаута ('+lock.b+') выше вашей мобильности ('+M.mob.a+') — подвижным героям нужны сейвы или BKB по таймингу.');
 
   const ci=M.counter;
-  if(Math.abs(ci.diff)>=0.6) S.push('Counter index favours '+(ci.diff>0?'you':botLabel)+' ('+ci.a+' vs '+ci.b+').');
-  const meta=M.meta;
-  if(meta.na-meta.nb>=4) S.push('You also leaned on stronger meta picks (index '+meta.a+' vs '+meta.b+').');
-  else if(meta.nb-meta.na>=4) S.push(botLabel.charAt(0).toUpperCase()+botLabel.slice(1)+' leaned on stronger meta picks (index '+meta.b+' vs '+meta.a+').');
-  const fit=M.fit;
-  if(fit.na-fit.nb>=10) S.push('Position discipline is on your side ('+fit.a+' fit vs '+fit.b+').');
-  else if(fit.nb-fit.na>=10) S.push(botLabel.charAt(0).toUpperCase()+botLabel.slice(1)+' kept cleaner position discipline ('+fit.b+' fit vs '+fit.a+').');
-  if(you.curve!==bot.curve) S.push('Timing differs: '+you.curve.toLowerCase()+' for you ('+M.scaling.a+' scaling / '+M.lane.a+' early) versus '+bot.curve.toLowerCase()+' for them ('+M.scaling.b+' / '+M.lane.b+').');
-  const dmg=M.dmg;
-  if(Math.abs(dmg.diff)>=15) S.push('Damage balance: '+dmg.a+' for you vs '+dmg.b+' for them — the lopsided side is easier to itemise against.');
-  S.push('Model win probability: '+probYou+'% / '+(100-probYou)+'%.');
-  return S;
-}
+  if(Math.abs(ci.diff)>=0.6) out.push('Индекс контрпика в пользу '+(ci.diff>0?'вас':opp)+' ('+ci.a+' к '+ci.b+') — насколько каждый состав отвечает на условие победы другого.');
 
+  const meta=M.meta;
+  if(meta.na-meta.nb>=4) out.push('Вы также опирались на более сильные мета-пики (индекс '+meta.a+' против '+meta.b+').');
+  else if(meta.nb-meta.na>=4) out.push(capFirst(opp)+' опирался на более сильные мета-пики (индекс '+meta.b+' против '+meta.a+').');
+
+  const fit=M.fit;
+  if(fit.na-fit.nb>=10) out.push('Дисциплина позиций на вашей стороне ('+fit.a+' против '+fit.b+') — герои стоят на своих линиях.');
+  else if(fit.nb-fit.na>=10) out.push(capFirst(opp)+' аккуратнее расставил героев по позициям ('+fit.b+' против '+fit.a+').');
+
+  if(you.curve!==bot.curve) out.push('Тайминги различаются: у вас «'+you.curve.toLowerCase()+'» (scaling '+M.scaling.a+' / early '+M.lane.a+'), у них «'+bot.curve.toLowerCase()+'» ('+M.scaling.b+' / '+M.lane.b+').');
+  else out.push('Оба драфта живут в одном тайминге «'+you.curve.toLowerCase()+'» — борьба за темп будет плотной.');
+
+  const dmg=M.dmg;
+  if(Math.abs(dmg.diff)>=15) out.push('Баланс урона: '+dmg.a+' у вас против '+dmg.b+' у них — однобокую сторону проще законтрить предметами.');
+
+  out.push('Модельный шанс победы: '+probYou+'% / '+(100-probYou)+'%.');
+  return out;
+}
 function sides(){
-  if(state.mode==='ranked'){
-    const you=state.rankedSide, opp=you==='radiant'?'dire':'radiant';
+  if(state.mode==='ai'){
+    const diff=DIFFS[state.difficulty];
     return {
-      you:you, bot:opp,
-      youLabel:'TEAM '+(you==='radiant'?'1':'2')+' · YOUR SIDE',
-      botLabel:'TEAM '+(opp==='radiant'?'1':'2'),
-      youName:you==='radiant'?'RADIANT':'DIRE', botName:opp==='radiant'?'RADIANT':'DIRE',
-      botPhrase:'team '+(opp==='radiant'?'1':'2')
+      you:state.playerTeam, bot:state.aiTeam,
+      youName:TEAM_RU[state.playerTeam], botName:TEAM_RU[state.aiTeam],
+      youLabel:'ВЫ · '+TEAM_RU[state.playerTeam], botLabel:diff.label.toUpperCase()+' · '+TEAM_RU[state.aiTeam],
+      youTitle:'Ваш состав', botTitle:'Состав бота',
+      youNotes:'Ваш состав · разбор', botNotes:'Состав бота · разбор'
     };
   }
-  const diff=DIFFS[state.difficulty];
+  const you=gradedSide(), bot=opponentSide();
+  const prefix = state.mode==='sandbox' ? 'СТОРОНА' : 'ВАША СТОРОНА';
   return {
-    you:state.playerTeam, bot:state.aiTeam,
-    youLabel:'YOU', botLabel:diff.label.toUpperCase(),
-    youName:state.playerTeam==='radiant'?'RADIANT':'DIRE',
-    botName:state.aiTeam==='radiant'?'RADIANT':'DIRE',
-    botPhrase:'the '+diff.label.toLowerCase()
+    you:you, bot:bot,
+    youName:TEAM_RU[you], botName:TEAM_RU[bot],
+    youLabel:(state.mode==='sandbox'?'ОЦЕНИВАЕМАЯ СТОРОНА · ':'ВЫ · ')+TEAM_RU[you],
+    botLabel:(state.mode==='sandbox'?'СОПЕРНИК · ':'СОПЕРНИК · ')+TEAM_RU[bot],
+    youTitle:'Состав «'+TEAM_RU[you]+'»', botTitle:'Состав «'+TEAM_RU[bot]+'»',
+    youNotes:'Состав «'+TEAM_RU[you]+'» · разбор', botNotes:'Состав «'+TEAM_RU[bot]+'» · разбор'
   };
 }
-
 function renderAnalysis(){
   const S=sides();
   const you=teamReport(S.you), bot=teamReport(S.bot);
@@ -2204,10 +2256,12 @@ function renderAnalysis(){
   const youColor=S.you==='radiant'?'#8fc79b':'#dc9087';
   const youBar=S.you==='radiant'?'#5aa469':'#c2564b';
 
-  $('#a-sub').textContent=S.youLabel+' ('+S.youName+') vs '+S.botLabel+' ('+S.botName+')';
+  const modeRu = state.mode==='ai' ? 'ОДИНОЧНАЯ ИГРА' : state.mode==='sandbox' ? 'ПЕСОЧНИЦА' : 'РЕНКЕД ПОМОЩНИК';
+  $('#a-sub').textContent=modeRu+' · '+S.youLabel+' против '+S.botLabel;
+
   const badge=$('#grade-badge');
   badge.textContent=grade.letter; badge.style.color=grade.color; badge.style.borderColor=grade.color;
-  $('#grade-title').textContent=state.mode==='ranked'?(grade.title+' · RANKED PRACTICE'):grade.title;
+  $('#grade-title').textContent=grade.title;
   $('#grade-title').style.color=grade.color;
   $('#grade-body').textContent=buildProse(you,bot,T,grade,probYou,S).join(' ');
   $('#grade-you').textContent=you.composite; $('#grade-you').style.color=youColor;
@@ -2216,20 +2270,20 @@ function renderAnalysis(){
   $('#grade-delta').style.color=delta>0?youColor:delta<0?'#b0a6e6':'#8b949e';
   $('#grade-rows').textContent=grade.rowsWon+'–'+grade.rowsLost;
 
-  $('#wp-you-label').textContent=S.youLabel+' '+probYou+'%';
+  $('#wp-you-label').textContent=S.youName+' · '+probYou+'%';
   $('#wp-you-label').style.color=youColor;
-  $('#wp-bot-label').textContent=probBot+'% '+S.botLabel;
+  $('#wp-bot-label').textContent=probBot+'% · '+S.botName;
   $('#wp-you').style.background=youBar;
   $('#wp-bot').style.background='#8a7bd8';
   const dp=Math.abs(probYou-probBot);
   $('#wp-note').textContent = dp<=6
-    ? 'Coin-flip draft — a '+dp+'-point model gap is inside execution noise.'
-    : (probYou>probBot ? 'Your side is favoured by '+dp+' points — convert it before the opponent hits its timing.'
-                       : 'The opposite side is favoured by '+dp+' points — an early lead is required.');
+    ? 'Драфт-монетка: разрыв '+dp+' пунктов лежит в пределах погрешности исполнения.'
+    : (probYou>probBot ? 'Ваша сторона сильнее на '+dp+' пунктов — реализуйте преимущество до выхода соперника в тайминг.'
+                       : 'Соперник сильнее на '+dp+' пунктов — нужен ранний перевес, чтобы остаться в игре.');
 
   const host=$('#a-metrics'); host.innerHTML='';
-  $('#m-left-label').textContent=S.youName+' · '+S.youLabel; $('#m-left-label').style.color=youColor;
-  $('#m-right-label').textContent=S.botName+' · '+S.botLabel;
+  $('#m-left-label').textContent=S.youLabel; $('#m-left-label').style.color=youColor;
+  $('#m-right-label').textContent=S.botLabel;
   METRIC_META.forEach(m=>{
     const yv=you.pct[m.key], bv=bot.pct[m.key];
     const lead=Math.abs(yv-bv)<3?'tie':yv>bv?'you':'bot';
@@ -2244,10 +2298,11 @@ function renderAnalysis(){
     host.appendChild(row);
   });
   $('#a-method').textContent=
-    'Method · each hero contributes a zero-sum profile from its API role tags, primary attribute and attack type (shares sum to 1.0). '+
-    'Team value = strict mean of the five profiles, re-centred on the balanced baseline (even share 16.7% → 50) and shifted at most ±5 points by lineup quality '+
-    '(meta '+you.metaAvg+' vs '+bot.metaAvg+', role coverage '+n1(you.coverage)+' vs '+n1(bot.coverage)+'). '+
-    'Composite weights: teamfight 24%, early game 18%, scaling 18%, mobility 18%, durability 12%, push 10%. Ceiling '+MAX_SCORE+'%.';
+    'Методика · каждый герой даёт профиль с нулевой суммой из его API-ролей, основного атрибута и типа атаки (доли в сумме дают 1.0). '+
+    'Значение команды = строгое среднее пяти профилей, пересчитанное от сбалансированной базы (равная доля 16.7% → 50) '+
+    'и сдвинутое не более чем на ±5 пунктов за качество состава (мета '+you.metaAvg+' против '+bot.metaAvg+
+    ', покрытие ролей '+n1(you.coverage)+' против '+n1(bot.coverage)+'). '+
+    'Веса итогового рейтинга: командный бой 24%, ранняя игра 18%, поздняя игра 18%, мобильность 18%, живучесть 12%, пуш 10%. Потолок — '+MAX_SCORE+'%.';
 
   const h2h=$('#a-h2h'); h2h.innerHTML='';
   T.rows.forEach(r=>{
@@ -2260,24 +2315,25 @@ function renderAnalysis(){
     h2h.appendChild(el);
   });
 
-  [['you',you,S.youName],['bot',bot,S.botName]].forEach(pair=>{
+  [['you',you,S.youTitle],['bot',bot,S.botTitle]].forEach(pair=>{
     const host2=$('#a-lineup-'+pair[0]);
-    $('#a-lineup-'+pair[0]+'-title').textContent=(pair[0]==='you'?'Your Lineup · ':'Opposite Lineup · ')+pair[2];
+    $('#a-lineup-'+pair[0]+'-title').textContent=pair[2];
     host2.innerHTML='';
     pair[1].heroes.forEach((h,i)=>{
       const cell=document.createElement('div');
       cell.className='lu';
-      cell.title=h?(POSITIONS[i].name+' · '+h.name+' · '+h.roles.join(', ')+' · meta '+h.meta):'Empty';
+      cell.title=h?(POSITIONS[i].name+' · '+h.name+' · '+h.roles.join(', ')+' · мета '+h.meta):'Пусто';
       cell.innerHTML=h
         ? '<img alt="'+esc(h.name)+'" data-hid="'+esc(h.id)+'" data-cdn="0" src="'+esc(heroUrl(h,0))+'" onerror="D2.imgFail(this)" />'+
           '<span class="lu-p">'+(i+1)+'</span><span class="lu-n">'+esc(h.name)+'</span>'
-        : '<span class="absolute inset-0 grid place-items-center font-mono text-[8px] tracking-[.2em] uppercase text-dim">Empty</span>';
+        : '<span class="absolute inset-0 grid place-items-center font-mono text-[8px] tracking-[.16em] uppercase text-dim">Пусто</span>';
       host2.appendChild(cell);
     });
   });
 
-  [['you',you],['bot',bot]].forEach(pair=>{
+  [['you',you,S.youNotes],['bot',bot,S.botNotes]].forEach(pair=>{
     const host3=$('#a-notes-'+pair[0]);
+    $('#a-notes-'+pair[0]+'-title').textContent=pair[2];
     host3.innerHTML='';
     pair[1].notes.slice(0,12).forEach(n=>{
       const el=document.createElement('div');
@@ -2299,18 +2355,46 @@ function renderAnalysis(){
   });
   ySubmitScore(you.composite);
 }
-
-/* interstitial first, then reveal the report */
 function openAnalysis(){
-  if(pickCount()<10){ toast('Both teams need five heroes'); return; }
-  toast('Loading matchup report…');
+  if(pickCount()<10){ toast('Обеим сторонам нужно по 5 героев'); return; }
+  toast('Формируем отчёт по матч-апу…');
   showInterstitial(()=>renderAnalysis());
 }
 function closeAnalysis(){ $('#analysis').classList.remove('open'); document.body.classList.remove('locked'); }
 
 /* ============================================================================
-   MENU / MODES
+   ГЛАВНОЕ МЕНЮ
    ========================================================================= */
+const MODE_RU={ai:'ОДИНОЧНАЯ ИГРА (VS ИИ)',sandbox:'АНАЛИЗАТОР МАТЧАПОВ (ПЕСОЧНИЦА)',coach:'РЕНКЕД ПОМОЩНИК (ЖИВОЙ ТРЕНЕР)'};
+function bindMenu(){
+  $$('.mode').forEach(b=>b.addEventListener('click',()=>{
+    $$('.mode').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+    state.mode=b.dataset.mode;
+    $('#btn-to-config').disabled=false;
+  }));
+  $('#btn-to-config').addEventListener('click',()=>{ if(state.mode) showConfig(); });
+  $('#btn-back-modes').addEventListener('click',()=>{ $('#pane-config').classList.remove('on'); $('#pane-modes').classList.add('on'); icons(); });
+  $('#btn-start').addEventListener('click',startMatch);
+  $('#btn-menu').addEventListener('click',openMenu);
+
+  $$('#diff-opts .opt').forEach(b=>b.addEventListener('click',()=>{
+    $$('#diff-opts .opt').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); state.difficulty=b.dataset.diff;
+  }));
+  $$('#sb-side-opts .opt').forEach(b=>b.addEventListener('click',()=>{
+    $$('#sb-side-opts .opt').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); state.sandboxSide=b.dataset.side;
+  }));
+  $$('#coach-side-opts .opt').forEach(b=>b.addEventListener('click',()=>{
+    $$('#coach-side-opts .opt').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); state.coachSide=b.dataset.side;
+  }));
+  $$('#order-opts .opt').forEach(b=>b.addEventListener('click',()=>{
+    $$('#order-opts .opt').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); state.freeOrder=(b.dataset.order==='free'); state.targetSlot=null;
+  }));
+}
 function openMenu(){
   cancelAi();
   $('#analysis').classList.remove('open');
@@ -2319,121 +2403,89 @@ function openMenu(){
   $('#pane-modes').classList.add('on');
   $('#pane-config').classList.remove('on');
   $('#btn-to-config').disabled=!state.mode;
+  icons();
 }
 function showConfig(){
   $('#pane-modes').classList.remove('on');
   $('#pane-config').classList.add('on');
-  const ranked=state.mode==='ranked';
-  $('#cfg-ai').classList.toggle('hidden',ranked);
-  $('#cfg-ai').classList.toggle('grid',!ranked);
-  $('#cfg-ranked').classList.toggle('hidden',!ranked);
-  $('#cfg-ranked').classList.toggle('grid',ranked);
-  $('#cfg-title').textContent=ranked?'RANKED PRACTICE SETUP':'SOLO VS AI SETUP';
-  $('#cfg-sub').textContent=ranked?'COUNTER-PICK TRAINER · ТREНАЖЕР КОНТР-ПИКОВ':'TURN-BASED SIMULATION';
-  $('#start-label').textContent=ranked?'Open Draft Board':'Start Simulation';
+  $('#cfg-ai').classList.toggle('hidden',state.mode!=='ai');
+  $('#cfg-sandbox').classList.toggle('hidden',state.mode!=='sandbox');
+  $('#cfg-coach').classList.toggle('hidden',state.mode!=='coach');
+  $('#cfg-title').textContent=MODE_RU[state.mode]||'НАСТРОЙКА МАТЧА';
+  $('#cfg-sub').textContent= state.mode==='ai' ? 'ВЫ ЗА СВЕТ · БОТ ЗА ТЬМУ'
+    : state.mode==='sandbox' ? 'РУЧНОЙ ВВОД ВСЕХ 10 ПИКОВ'
+    : 'ТРЕНАЖЁР КОНТР-ПИКОВ';
+  $('#start-label').textContent= state.mode==='ai' ? 'Начать матч' : 'Открыть доску драфта';
   $('#btn-start').disabled=!state.heroes.length;
+  $('#start-hint').textContent=state.heroes.length+' героев готово к драфту';
   icons();
 }
 function applyModeLabels(){
-  const ranked=state.mode==='ranked';
   const diff=DIFFS[state.difficulty];
-  if(ranked){
-    $('#mode-line').textContent='MODE: RANKED PRACTICE · FREE COACH';
-    $('#mode-tag').textContent='COACH ON';
-    $('#nav-you').textContent='TEAM '+(state.rankedSide==='radiant'?'1':'2');
-    $('#nav-bot').textContent='TEAM '+(state.rankedSide==='radiant'?'2':'1');
-    ['radiant','dire'].forEach(t=>{
-      const tag=$('#tag-'+t), own=$('#owner-'+t);
-      const num=t==='radiant'?'1':'2';
-      if(t===state.rankedSide){ tag.textContent='TEAM '+num+' · YOUR SIDE'; tag.className='tag tag-'+(t==='radiant'?'rad':'dire');
-        own.textContent='YOU'; own.className='tag tag-you'; }
-      else { tag.textContent='TEAM '+num+' · OPPONENT'; tag.className='tag tag-'+(t==='radiant'?'rad':'dire');
-        own.textContent='OPP'; own.className='tag tag-bot'; }
-    });
-    $('#btn-auto').innerHTML='<i data-lucide="wand-2" class="text-[12px]"></i>Best Pick';
-  }else{
-    $('#mode-line').textContent='MODE: SOLO VS AI · '+diff.short;
-    $('#mode-tag').textContent=diff.short+' BOT';
-    $('#nav-you').textContent=state.playerTeam==='radiant'?'RADIANT':'DIRE';
+  const mine=gradedSide(), opp=opponentSide();
+  $('#mode-line').textContent='РЕЖИМ: '+(MODE_RU[state.mode]||'—');
+
+  if(state.mode==='ai'){
+    $('#mode-tag').textContent=diff.short+' БОТ';
+    $('#nav-you').textContent=TEAM_RU[state.playerTeam];
     $('#nav-bot').textContent=diff.short;
+    $('#tag-'+state.playerTeam).textContent='ИГРОК';
+    $('#tag-'+state.playerTeam).className='tag tag-'+(state.playerTeam==='radiant'?'rad':'dire');
+    $('#tag-'+state.aiTeam).textContent=diff.label.toUpperCase();
+    $('#tag-'+state.aiTeam).className='tag tag-'+(state.aiTeam==='radiant'?'rad':'dire');
+    $('#owner-'+state.playerTeam).textContent='ВЫ';
+    $('#owner-'+state.playerTeam).className='tag tag-you';
+    $('#owner-'+state.aiTeam).textContent=diff.short+' БОТ';
+    $('#owner-'+state.aiTeam).className='tag tag-bot';
+    $('#btn-auto').innerHTML='<i data-lucide="wand-2" class="text-[12px]"></i>Авто';
+  }else{
+    const isSb=state.mode==='sandbox';
+    $('#mode-tag').textContent=isSb?'ПЕСОЧНИЦА':'ТРЕНЕР';
+    $('#nav-you').textContent=TEAM_RU[mine];
+    $('#nav-bot').textContent=TEAM_RU[opp];
     ['radiant','dire'].forEach(t=>{
       const tag=$('#tag-'+t), own=$('#owner-'+t);
-      if(t===state.playerTeam){ tag.textContent='HUMAN PLAYER'; tag.className='tag tag-'+(t==='radiant'?'rad':'dire');
-        own.textContent='YOU'; own.className='tag tag-you'; }
-      else { tag.textContent=diff.label.toUpperCase(); tag.className='tag tag-'+(t==='radiant'?'rad':'dire');
-        own.textContent=diff.short+' BOT'; own.className='tag tag-bot'; }
+      if(t===mine){ tag.textContent='ВАША СТОРОНА'; tag.className='tag tag-'+(t==='radiant'?'rad':'dire');
+        own.textContent='ВЫ'; own.className='tag tag-you'; }
+      else { tag.textContent=isSb?'СОПЕРНИК':'СОПЕРНИК'; tag.className='tag tag-'+(t==='radiant'?'rad':'dire');
+        own.textContent=isSb?'ВВОД 2':'СОПЕРНИК'; own.className='tag tag-bot'; }
     });
-    $('#btn-auto').innerHTML='<i data-lucide="wand-2" class="text-[12px]"></i>Auto';
+    $('#btn-auto').innerHTML='<i data-lucide="wand-2" class="text-[12px]"></i>'+(isSb?'Авто':'Лучший');
   }
   icons();
 }
 function startMatch(){
-  if(!state.heroes.length){ toast('Roster still loading'); return; }
+  if(!state.heroes.length){ toast('Ростер ещё загружается'); return; }
+  if(state.mode==='ai'){ state.playerTeam='radiant'; state.aiTeam='dire'; }
   state.started=true;
   cancelAi(); resetDraft(); buildOrderStrip(); applyModeLabels();
   $('#setup').classList.add('away');
   document.getElementById('draft').scrollIntoView({behavior:'smooth',block:'start'});
   yGameplayStart();
-  if(state.mode==='ranked') toast('Ranked Practice · you control both sides · coach is live');
-  else toast('You are '+state.playerTeam.toUpperCase()+' · vs '+DIFFS[state.difficulty].label);
-  setTimeout(()=>{ renderDraft(); if(state.mode==='ai'&&isAiTurn()) scheduleAiTurn(); },300);
+  if(state.mode==='ai') toast('Вы играете за СВЕТ · против: '+DIFFS[state.difficulty].label);
+  else if(state.mode==='sandbox') toast('Песочница: вводите все 10 пиков вручную · порядок С1-Т1-С2-Т2…');
+  else toast('Ренкед помощник: тренер подсказывает стороне, которая пикает');
+  setTimeout(()=>{ renderDraft(); if(state.mode==='ai'&&activeSlot()&&activeSlot().team===state.aiTeam) scheduleAiTurn(); },300);
 }
 
 /* ============================================================================
-   EVENTS
+   СОБЫТИЯ
    ========================================================================= */
-function bindMenu(){
-  $$('.mode').forEach(b=>b.addEventListener('click',()=>{
-    const m=b.dataset.mode;
-    if(m==='p2p'){ toast('Online P2P is locked in the offline build'); return; }
-    $$('.mode').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel');
-    state.mode=m;
-    $('#btn-to-config').disabled=false;
-  }));
-  $('#btn-to-config').addEventListener('click',()=>{ if(state.mode) showConfig(); });
-  $('#btn-back-modes').addEventListener('click',()=>{ $('#pane-config').classList.remove('on'); $('#pane-modes').classList.add('on'); icons(); });
-  $('#btn-start').addEventListener('click',startMatch);
-  $('#btn-menu').addEventListener('click',openMenu);
-
-  $$('#team-opts .opt').forEach(b=>b.addEventListener('click',()=>{
-    $$('#team-opts .opt').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel');
-    state.playerTeam=b.dataset.team;
-    state.aiTeam=state.playerTeam==='radiant'?'dire':'radiant';
-  }));
-  $$('#diff-opts .opt').forEach(b=>b.addEventListener('click',()=>{
-    $$('#diff-opts .opt').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel');
-    state.difficulty=b.dataset.diff;
-  }));
-  $$('#side-opts .opt').forEach(b=>b.addEventListener('click',()=>{
-    $$('#side-opts .opt').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel');
-    state.rankedSide=b.dataset.side;
-  }));
-  $$('#order-opts .opt').forEach(b=>b.addEventListener('click',()=>{
-    $$('#order-opts .opt').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel');
-    state.freeOrder=(b.dataset.order==='free');
-    state.targetSlot=null;
-  }));
-}
 function bindEvents(){
   $('#hero-grid').addEventListener('click',e=>{
     const card=e.target.closest('.tile'); if(!card) return;
-    if(!state.started){ toast('Choose a game mode first'); openMenu(); return; }
-    if(state.locked){ toast('Bot is selecting'); return; }
+    if(!state.started){ toast('Сначала выберите режим игры'); openMenu(); return; }
+    if(state.locked){ toast('Бот выбирает героя'); return; }
     const slot=activeSlot();
-    if(!slot){ toast('Draft complete — open the report'); return; }
-    if(state.mode==='ai'&&slot.team!==state.playerTeam){ toast('This is the bot selection'); return; }
+    if(!slot){ toast('Драфт завершён — откройте отчёт'); return; }
+    if(state.mode==='ai'&&slot.team!==state.playerTeam){ toast('Сейчас пик бота'); return; }
     const hero=state.byId.get(card.dataset.id);
     if(!hero) return;
-    if(card.classList.contains('taken')){ toast(hero.name+' already drafted'); return; }
+    if(card.classList.contains('taken')){ toast(hero.name+' уже в драфте'); return; }
     commitPick(hero,false);
   });
 
-  const search=$('#search'),clear=$('#search-clear');
+  const search=$('#search'), clear=$('#search-clear');
   let rafId=null;
   search.addEventListener('input',()=>{
     if(rafId) cancelAnimationFrame(rafId);
@@ -2446,18 +2498,19 @@ function bindEvents(){
     b.classList.add('on'); state.attr=b.dataset.attr; applyFilters();
   }));
   $('#sort').addEventListener('change',e=>{ state.sort=e.target.value; sortGrid(); });
+
   $('#btn-coach').addEventListener('click',()=>{
-    state.coach=!state.coach;
-    $('#btn-coach').classList.toggle('btn-on',state.coach);
-    paintCoachHighlights();
-    toast(state.coach?'Coach highlights on':'Coach highlights off');
+    state.highlight=!state.highlight;
+    $('#btn-coach').classList.toggle('btn-on',state.highlight);
+    paintHighlights();
+    toast(state.highlight?'Подсветка подсказок включена':'Подсветка подсказок выключена');
   });
 
   $('#btn-undo').addEventListener('click',undo);
   $('#btn-auto').addEventListener('click',autoPickForPlayer);
-  $('#btn-reset').addEventListener('click',()=>{ resetDraft(); closeAnalysis(); toast('Draft restarted'); });
+  $('#btn-reset').addEventListener('click',()=>{ resetDraft(); closeAnalysis(); toast('Драфт начат заново'); });
   $('#btn-analyze').addEventListener('click',openAnalysis);
-  $('#btn-refetch').addEventListener('click',()=>{ $('#boot').classList.remove('done'); setBoot(4,'Re-syncing roster…'); loadHeroes(); });
+  $('#btn-refetch').addEventListener('click',()=>{ $('#boot').classList.remove('done'); setBoot(4,'Повторная синхронизация ростера…'); loadHeroes(); });
 
   $('#a-close').addEventListener('click',closeAnalysis);
   $('#a-close2').addEventListener('click',closeAnalysis);
@@ -2466,7 +2519,7 @@ function bindEvents(){
     closeAnalysis(); resetDraft(); buildOrderStrip();
     document.getElementById('draft').scrollIntoView({behavior:'smooth'});
     yGameplayStart();
-    setTimeout(()=>{ if(state.mode==='ai'&&isAiTurn()) scheduleAiTurn(); },260);
+    setTimeout(()=>{ if(state.mode==='ai'&&activeSlot()&&activeSlot().team===state.aiTeam) scheduleAiTurn(); },260);
   });
   $('#a-newsetup').addEventListener('click',openMenu);
 
@@ -2483,33 +2536,35 @@ function bindEvents(){
 }
 
 /* ============================================================================
-   OFFLINE FALLBACK + BOOT
+   ОФЛАЙН-РЕЖИМ И СТАРТ
    ========================================================================= */
 function useOffline(reason){
-  console.warn('[draftsim] falling back to local roster:',reason);
+  console.warn('[draftsim] переключаюсь на локальный ростер:',reason);
   state.offline=true;
-  state.source='Offline · local roster ('+FALLBACK_HEROES.length+')';
+  state.source='Офлайн · локальный ростер ('+FALLBACK_HEROES.length+')';
   const seen=new Set();
   state.heroes=FALLBACK_HEROES.map(normalize).filter(h=>{ if(!h) return false; const k=String(h.id); if(seen.has(k)) return false; seen.add(k); return true; })
     .sort((a,b)=>a.name.localeCompare(b.name));
   state.byId.clear(); state.heroes.forEach(h=>state.byId.set(String(h.id),h));
   buildRoleChips(); renderGrid();
   $('#status-dot').className='w-1.5 h-1.5 bg-dire';
-  $('#status-text').textContent='OFFLINE ROSTER';
-  $('#hero-count').textContent=state.heroes.length+' HEROES';
-  $('#roster-source').textContent=state.source+' · IMAGES: opendota.com';
-  $('#setup-source').textContent='ROSTER: '+state.source;
+  $('#status-text').textContent='ОФЛАЙН-РОСТЕР';
+  $('#hero-count').textContent=state.heroes.length+' ГЕРОЕВ';
+  $('#roster-source').textContent=state.source+' · КАРТИНКИ: opendota.com';
+  $('#setup-source').textContent='РОСТЕР: '+state.source;
   $('#btn-start').disabled=false;
-  $('#start-hint').textContent=state.heroes.length+' heroes ready (offline)';
-  setBoot(100,'Offline mode'); icons(); renderCoach();
+  $('#start-hint').textContent=state.heroes.length+' героев готово (офлайн)';
+  setBoot(100,'Офлайн-режим'); icons(); renderCoach();
   $('#boot').classList.add('done');
-  toast('Network blocked — '+state.heroes.length+' heroes loaded offline');
+  toast('Сеть недоступна — загружено '+state.heroes.length+' героев офлайн');
 }
 function boot(){
   icons();
-  buildSlots(); buildOrderStrip(); bindMenu(); bindEvents(); renderDraft(); icons();
-  yInit().then(()=>{ loadHeroes().then(()=>{ if(!state.heroes.length) useOffline('empty roster'); })
-    .catch(err=>useOffline(err&&err.message?err.message:err)); });
+  buildSlots(); buildOrderStrip(); bindMenu(); bindEvents(); applyModeLabels(); renderDraft(); icons();
+  yInit().then(()=>{
+    loadHeroes().then(()=>{ if(!state.heroes.length) useOffline('пустой ростер'); })
+      .catch(err=>useOffline(err&&err.message?err.message:err));
+  });
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot);
 else boot();
